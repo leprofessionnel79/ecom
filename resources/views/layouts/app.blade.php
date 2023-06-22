@@ -9,7 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-
+    <!-- Scripts -->
 
 
     <!-- Fonts -->
@@ -80,9 +80,8 @@
             @yield('content')
         </main>
     </div>
-    <!-- Scripts -->
-    <script src="{{ asset('assets/js/jquery-3.7.0.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstarp.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
     @livewireScripts
 </body>
 </html>
