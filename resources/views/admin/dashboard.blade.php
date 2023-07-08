@@ -10,10 +10,9 @@
         <div class="d-flex align-items-end flex-wrap">
           <div class="me-md-3 me-xl-5">
             @if(session('message'))
-            <h2>{{session('message')}},</h2>
+            <h2 class="alert alert-success">{{session('message')}},</h2>
             @endif
-
-            <p class="mb-md-0">Your analytics dashboard template.</p>
+             <p class="mb-md-0">Dashboard.</p>
           </div>
           <div class="d-flex">
             <i class="mdi mdi-home text-muted hover-cursor"></i>
