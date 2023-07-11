@@ -21,7 +21,7 @@
   <link rel="shortcut icon" href="{{asset('admin/images/favicon.png')}}" />
 
 
- 
+
     @livewireStyles
 </head>
 <body>
@@ -140,5 +140,6 @@
     <script src="admin/js/jquery.cookie.js" type="text/javascript"></script>
      <!-- End custom js for this page-->
     @livewireScripts
+    @stack('script')
 </body>
 </html>
