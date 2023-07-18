@@ -5,9 +5,12 @@ namespace App\Http\Livewire\Admin\Brand;
 use App\Models\Brand;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $name,$slug,$status;
 
 
@@ -41,7 +44,8 @@ class Index extends Component
     }
     public function render()
     {
-        return view('livewire.admin.brand.index')
+        $brands=Brand::orderBy('id','DESC')->paginate(10);
+        return view('livewire.admin.brand.index',['brands'=>$brands])
                       ->extends('layouts.admin')
                       ->section('content');
     }
