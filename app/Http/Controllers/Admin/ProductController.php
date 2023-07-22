@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductFormRequest;
 use App\Models\Product;
+use App\Models\ProductImage;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -123,6 +125,38 @@ class ProductController extends Controller
         {
            return redirect('admin/products')->with('message','No Sush Product ID Found');
         }
+
+    }
+
+    public function destroyImage(int $product_image_id)
+    {
+        $productImage = ProductImage::findOrFail($product_image_id);
+        if(File::exists($productImage->image))
+        {
+            File::delete($productImage->image);
+        }
+        $productImage->delete();
+
+        return redirect()->back()->with('message','Product Image Deleted');
+
+    }
+
+    public function destroy(int $product_id)
+    {
+        $product = Product::findOrFail($product_id);
+        if($product->productImages){
+            foreach($product->productImages as $image)
+            {
+                if(File::exists($image->image))
+                {
+                    File::delete($image->image);
+                }
+            }
+
+        }
+        $product->delete();
+
+        return redirect()->back()->with('message','Product Deleted With All Its Images');
 
     }
 }
