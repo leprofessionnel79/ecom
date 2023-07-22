@@ -61,12 +61,21 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
         Route::get('/products/{product_id}/delete','destroy');
         Route::get('/product-image/{product_image_id}/delete','destroyImage');
 
+
     });
 
 
     Route::get('/brands',App\Http\Livewire\Admin\Brand\Index::class);
 
 
+    Route::controller(App\Http\Controllers\Admin\ColorController::class)->group(function () {
+
+        Route::get('/colors', 'index');
+        Route::get('/colors/create','create');
+        Route::post('/colors/create','store');
+
+
+    });
 
 
 });
