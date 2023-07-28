@@ -124,8 +124,10 @@
     <script src="admin/js/dataTables.bootstrap4.js"></script>
     <!-- End custom js for this page-->
 
-    <script src="admin/js/jquery.cookie.js" type="text/javascript"></script>
+    {{-- <script src="admin/js/jquery.cookie.js" type="text/javascript"></script> --}}
      <!-- End custom js for this page-->
+    @yield('scripts')
+
     @livewireScripts
     @stack('script')
 </body>
