@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Slider;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\SliderFormRequest;
-use App\Models\Slider;
 
 class SliderController extends Controller
 {
@@ -42,5 +43,55 @@ class SliderController extends Controller
         ]);
 
         return redirect('admin/sliders')->with('message','Slider Added Successfully');
+    }
+
+    public function edit(Slider $slider)
+    {
+        return view('admin.slider.edit',compact('slider'));
+    }
+
+    public function update(SliderFormRequest $request,Slider $slider )
+    {
+        $validatedData = $request->validated();
+
+        if($request->hasFile('image')){
+
+          $dstination = $slider->image;
+          if(File::exists($dstination)){
+             File::delete($dstination);
+          }
+          $file = $request->file('image');
+          $ext = $file->getClientOriginalExtension();
+          $fileName = time().'.'.$ext;
+          $file->move('uploads/sliders/',$fileName);
+          $validatedData['image']="uploads/sliders/$fileName";
+        }
+
+        $validatedData['status']=$request->status == true ?'1':'0';
+
+        Slider::where('id',$slider->id)->update([
+          'title'=>$validatedData['title'],
+          'description'=>$validatedData['description'],
+          'image'=>$validatedData['image'] ?? $slider->image,
+          'status'=>$validatedData['status'],
+        ]);
+
+        return redirect('admin/sliders')->with('message','Slider Updated Successfully');
+    }
+
+    public function destroy(Slider $slider)
+    {
+        if($slider->count()>0){
+            $dstination = $slider->image;
+            if(File::exists($dstination)){
+               File::delete($dstination);
+            }
+
+            $slider->delete();
+            return redirect('admin/sliders')->with('message','Slider Deleted Successfully');
+
+        }
+        return redirect('admin/sliders')->with('message','Somthin went wrong');
+
     }
 }
