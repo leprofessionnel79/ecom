@@ -28,30 +28,30 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label>Full Name</label>
-                                    <input type="text" wire:model.defer="fullname" class="form-control" placeholder="Enter Full Name" />
+                                    <input type="text" wire:model.defer="fullname" id="fullname" class="form-control" placeholder="Enter Full Name" />
                                     @error('fullname') <small class="text-danger">{{$message}}</small> @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Phone Number</label>
-                                    <input type="number" wire:model.defer="phone" class="form-control" placeholder="Enter Phone Number" />
+                                    <input type="number" wire:model.defer="phone" id="phone" class="form-control" placeholder="Enter Phone Number" />
                                     @error('phone') <small class="text-danger">{{$message}}</small> @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Email Address</label>
-                                    <input type="email" wire:model.defer="email" class="form-control" placeholder="Enter Email Address" />
+                                    <input type="email" wire:model.defer="email" id="email" class="form-control" placeholder="Enter Email Address" />
                                     @error('email') <small class="text-danger">{{$message}}</small> @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Pin-code (Zip-code)</label>
-                                    <input type="number" wire:model.defer="pincode" class="form-control" placeholder="Enter Pin-code" />
+                                    <input type="number" wire:model.defer="pincode" id="pincode" class="form-control" placeholder="Enter Pin-code" />
                                     @error('pincode') <small class="text-danger">{{$message}}</small> @enderror
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label>Full Address</label>
-                                    <textarea wire:model.defer="address" class="form-control" rows="2"></textarea>
+                                    <textarea wire:model.defer="address" id="address" class="form-control" rows="2"></textarea>
                                     @error('address') <small class="text-danger">{{$message}}</small> @enderror
                                 </div>
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-12 mb-3" wire:ignore>
                                     <label>Select Payment Mode: </label>
                                     <div class="d-md-flex align-items-start">
                                         <div class="nav col-md-3 flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -77,7 +77,10 @@
                                             <div class="tab-pane fade" id="onlinePayment" role="tabpanel" aria-labelledby="onlinePayment-tab" tabindex="0">
                                                 <h6>Online Payment Mode</h6>
                                                 <hr/>
-                                                <button type="button" wire:loading.attr="disabled" class="btn btn-warning">Pay Now (Online Payment)</button>
+                                                {{-- <button type="button" wire:loading.attr="disabled" class="btn btn-warning">Pay Now (Online Payment)</button> --}}
+                                                <div>
+                                                    <div id="paypal-button-container"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -99,3 +102,62 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+
+<script src="https://www.paypal.com/sdk/js?client-id=Ac-06sCFUVimv_m64CRzqsY2Rndl-J6065nWuLYNnvJZkTrhGweTMlNVDIIMgVDbnblisasD-CCALkoD&currency=USD"></script>
+<script>
+    paypal.Buttons({
+        onClick: function()  {
+
+            // Show a validation error if the checkbox is not checked
+            if (!document.getElementById('fullname').value
+              ||!document.getElementById('phone').value
+              ||!document.getElementById('email').value
+              ||!document.getElementById('pincode').value
+              ||!document.getElementById('address').value )
+            {
+              Livewire.emit('validationForALL');
+              return false;
+            }else
+            {
+                @this.set('fullname',document.getElementById('fullname').value);
+                @this.set('phone',document.getElementById('phone').value);
+                @this.set('email',document.getElementById('email').value);
+                @this.set('pincode',document.getElementById('pincode').value);
+                @this.set('address',document.getElementById('address').value);
+
+            }
+            },
+        // Order is created on the server and the order id is returned
+        createOrder: (data, actions) => {
+            return actions.order.create({
+                purchase_units:[{
+                    amount:{
+                        value:{{$this->totalProductAmount}}
+                    }
+                }]
+
+            });
+            },
+
+            onApprove: function(data, actions) {
+            // This function captures the funds from the transaction.
+            return actions.order.capture().then(function(orderData) {
+                console.log('Captur Result',orderData,JSON.stringify(orderData,null,2));
+                const transaction= orderData.purchase_units[0].payments.captures[0];
+
+                if(transaction.status == "COMPLETED")
+                {
+
+                    Livewire.emit('transactionEmit',transaction.id);
+
+                }
+
+            });
+          }
+        }).render('#paypal-button-container');
+        
+    </script>
+
+@endpush
