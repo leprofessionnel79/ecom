@@ -29,7 +29,7 @@ class CartShow extends Component
                     ]);
                 }
                 else{
-                    if($productColor->quantity > $cartData->quantity)
+                    if($productColor->quantity >= $cartData->quantity)
                     {
                             $cartData->decrement('quantity');
                         $this->dispatchBrowserEvent('message', [
@@ -48,8 +48,6 @@ class CartShow extends Component
                     }
                 }
 
-
-
             }else
             {
                 if($cartData->quantity <= 1){
@@ -61,7 +59,7 @@ class CartShow extends Component
                     ]);
                 }
                 else{
-                    if($cartData->product->quantity > $cartData->quantity){
+                    if($cartData->product->quantity >= $cartData->quantity){
                         $cartData->decrement('quantity');
                         $this->dispatchBrowserEvent('message', [
                         'text' => 'Quantity Updated',
@@ -76,10 +74,8 @@ class CartShow extends Component
                             ]);
                          }
 
-
                     }
               }
-
 
         }else
         {

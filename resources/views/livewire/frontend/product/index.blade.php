@@ -26,9 +26,6 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-
-
-
                 <div class="row">
                     @forelse ($products as $productItem )
                     <div class="col-md-4">
