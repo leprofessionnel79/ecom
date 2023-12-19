@@ -58,8 +58,8 @@
         </a>
         <div class="collapse" id="ui-basic2">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('admin/users/create')}}">Add User</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('admin/users')}}">View Users</a></li>
           </ul>
         </div>
       </li>
