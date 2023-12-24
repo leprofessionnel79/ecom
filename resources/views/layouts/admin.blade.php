@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title> @yield('title') {{ config('app.name', 'Laravel') }}</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('admin/vendors/mdi/css/materialdesignicons.min.css')}}">
   <link rel="stylesheet" href="{{asset('admin/vendors/base/vendor.bundle.base.css')}}">
   <!-- endinject -->
@@ -20,6 +20,14 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="{{asset('admin/images/favicon.png')}}" />
 
+   <style>
+      .form-control{
+        border: 1px solid #ddd
+      }
+      .sidebar .nav .nav-item.active{
+        background-color: #e9e9e9
+      }
+   </style>
 
 
     @livewireStyles

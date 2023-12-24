@@ -184,7 +184,7 @@
 
     <br>
     <p class="text-center">
-        Thank your for shopping with SAMADI Ecommerce
+        Thank you for shopping with SAMADI Ecommerce
     </p>
 
 </body>
