@@ -24,7 +24,6 @@
                         </h4>
                         <hr>
 
-
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label>Full Name</label>
@@ -157,7 +156,7 @@
             });
           }
         }).render('#paypal-button-container');
-        
+
     </script>
 
 @endpush
