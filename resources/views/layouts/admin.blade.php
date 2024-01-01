@@ -19,7 +19,19 @@
   <link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{asset('admin/images/favicon.png')}}" />
+  {{-- font --}}
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+
+
+   <style>
+    *{
+        font-family: 'Cairo'
+    }
+   </style>
+   
    <style>
       .form-control{
         border: 1px solid #ddd

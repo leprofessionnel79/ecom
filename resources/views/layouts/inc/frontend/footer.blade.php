@@ -12,26 +12,26 @@
                         </p>
                     </div>
                     <div class="col-md-3">
-                        <h4 class="footer-heading">Quick Links</h4>
+                        <h4 class="footer-heading">{{__('customlang.quickLinks')}}</h4>
                         <div class="footer-underline"></div>
-                        <div class="mb-2"><a href="{{url('/')}}" class="text-white">Home</a></div>
-                        <div class="mb-2"><a href="{{url('/about-us')}}" class="text-white">About Us</a></div>
+                        <div class="mb-2"><a href="{{url('/')}}" class="text-white">{{__('customlang.homePage')}}</a></div>
+                        <div class="mb-2"><a href="{{url('/about-us')}}" class="text-white">{{__('customlang.aboutUs')}}</a></div>
 
-                        <div class="mb-2"><a href="{{url('/contact-us')}}" class="text-white">Contact Us</a></div>
+                        <div class="mb-2"><a href="{{url('/contact-us')}}" class="text-white">{{__('customlang.contactUs')}}</a></div>
                         <div class="mb-2"><a href="{{url('/blogs')}}" class="text-white">Blogs</a></div>
                         <div class="mb-2"><a href="" class="text-white">Sitemaps</a></div>
                     </div>
                     <div class="col-md-3">
-                        <h4 class="footer-heading">Shop Now</h4>
+                        <h4 class="footer-heading">{{__('customlang.shopNow')}}</h4>
                         <div class="footer-underline"></div>
-                        <div class="mb-2"><a href="{{url('/collections')}}" class="text-white">Collections</a></div>
-                        <div class="mb-2"><a href="{{url('/')}}" class="text-white">Trending Products</a></div>
-                        <div class="mb-2"><a href="{{url('/new-arrivals')}}" class="text-white">New Arrivals Products</a></div>
-                        <div class="mb-2"><a href="{{url('/featured-products')}}" class="text-white">Featured Products</a></div>
-                        <div class="mb-2"><a href="{{url('/cart')}}" class="text-white">Cart</a></div>
+                        <div class="mb-2"><a href="{{url('/collections')}}" class="text-white">{{__('customlang.allCategories')}}</a></div>
+                        <div class="mb-2"><a href="{{url('/')}}" class="text-white">{{__('customlang.homePage')}}</a></div>
+                        <div class="mb-2"><a href="{{url('/new-arrivals')}}" class="text-white">{{__('customlang.newArrivalProducts')}}</a></div>
+                        <div class="mb-2"><a href="{{url('/featured-products')}}" class="text-white">{{__('customlang.featuredProducts')}}</a></div>
+                        <div class="mb-2"><a href="{{url('/cart')}}" class="text-white">{{__('customlang.cart')}}</a></div>
                     </div>
                     <div class="col-md-3">
-                        <h4 class="footer-heading">Reach Us</h4>
+                        <h4 class="footer-heading">{{__('customlang.reachUs')}}</h4>
                         <div class="footer-underline"></div>
                         <div class="mb-2">
                             <p>

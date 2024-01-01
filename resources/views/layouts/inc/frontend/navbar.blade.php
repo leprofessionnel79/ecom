@@ -8,7 +8,7 @@
                 <div class="col-md-5 my-auto">
                     <form action="{{url('search')}}" method="GET" role="search">
                         <div class="input-group">
-                            <input type="search" name="search" value="{{Request::get('search')}}" placeholder="Search your product" class="form-control" />
+                            <input type="search" name="search" value="{{Request::get('search')}}" placeholder="{{__('customlang.searchYourProduct')}}" class="form-control" />
                             <button class="btn bg-white" type="submit">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -20,24 +20,24 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('cart')}}">
-                                <i class="fa fa-shopping-cart"></i> Cart (<livewire:frontend.cart.cart-count/>)
+                                <i class="fa fa-shopping-cart"></i> {{__('customlang.cart')}} (<livewire:frontend.cart.cart-count/>)
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('wishlist')}}">
-                                <i class="fa fa-heart"></i> Wishlist (<livewire:frontend.wishlist-count/>)
+                                <i class="fa fa-heart"></i> {{__('customlang.wishList')}} (<livewire:frontend.wishlist-count/>)
                             </a>
                         </li>
                     @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('customlang.login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('customlang.register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -46,15 +46,15 @@
                                 <i class="fa fa-user"></i> {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{url('profile')}}"><i class="fa fa-user"></i> Profile</a></li>
-                            <li><a class="dropdown-item" href="{{url('orders')}}"><i class="fa fa-list"></i> My Orders</a></li>
-                            <li><a class="dropdown-item" href="{{url('wishlist')}}"><i class="fa fa-heart"></i> My Wishlist</a></li>
-                            <li><a class="dropdown-item" href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
+                            <li><a class="dropdown-item" href="{{url('profile')}}"><i class="fa fa-user"></i> {{__('customlang.profile')}}</a></li>
+                            <li><a class="dropdown-item" href="{{url('orders')}}"><i class="fa fa-list"></i> {{__('customlang.myOrder')}}</a></li>
+                            <li><a class="dropdown-item" href="{{url('wishlist')}}"><i class="fa fa-heart"></i> {{__('customlang.myWishList')}}</a></li>
+                            <li><a class="dropdown-item" href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i> {{__('customlang.cart')}}</a></li>
                             <li>
                                 <a class="dropdown-item" href="{{route('logout')}}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-sign-out"></i> {{ __('Logout') }}
+                                    <i class="fa fa-sign-out"></i> {{ __('customlang.logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -80,16 +80,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/')}}">Home</a>
+                        <a class="nav-link" href="{{url('/')}}">{{ __('customlang.homePage')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/collections')}}">All Categories</a>
+                        <a class="nav-link" href="{{url('/collections')}}">{{__('customlang.allCategories')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/new-arrivals')}}">New Arrivals</a>
+                        <a class="nav-link" href="{{url('/new-arrivals')}}">{{__('customlang.newArrivals')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/featured-products')}}">Featured Products</a>
+                        <a class="nav-link" href="{{url('/featured-products')}}">{{__('customlang.featuredProducts')}}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Electronics</a>
@@ -101,10 +101,10 @@
                         <a class="nav-link" href="#">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{{url('langConverter/en')}}">English</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Appliances</a>
+                        <a class="nav-link" style="font-family: cairo;font-weight:bold;" href="{{url('langConverter/ar')}}">العربيه</a>
                     </li>
                 </ul>
             </div>

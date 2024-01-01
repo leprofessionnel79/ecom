@@ -29,8 +29,16 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
     Route::get('/collections/{category_slug}/{product_slug}','productView');
     Route::get('/new-arrivals','newArrival');
     Route::get('/featured-products','featuredProducts');
-
     Route::get('search','searchProducts');
+
+    Route::get('langConverter/{locale}',function($locale){
+       if(!in_array($locale,['ar','en'])){
+            abort(404);
+       }
+       app()->setlocale($locale);
+       session()->put('locale',$locale);
+       return redirect()->back();
+    });
 });
 
 
