@@ -28,10 +28,11 @@
 
    <style>
     *{
-        font-family: 'Cairo'
+        font-family: 'Cairo';
+        font-weight: 500;
     }
    </style>
-   
+
    <style>
       .form-control{
         border: 1px solid #ddd

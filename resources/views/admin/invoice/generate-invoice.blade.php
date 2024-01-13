@@ -167,9 +167,9 @@
                     @endif
                 @endif
             </td>
-            <td width="10%">${{$orderItem->price}}</td>
+            <td width="10%">{{$appSetting->currency}} {{$orderItem->price}}</td>
             <td width="10%">{{$orderItem->quantity}}</td>
-            <td width="15%" class="fw-bold">${{$orderItem->quantity * $orderItem->price}}</td>
+            <td width="15%" class="fw-bold">{{$appSetting->currency}} {{$orderItem->quantity * $orderItem->price}}</td>
             @php
             $totalPrice += $orderItem->quantity * $orderItem->price;
             @endphp
@@ -177,7 +177,7 @@
             @endforeach
             <tr>
             <td colspan="4" class="total-heading">Total Amount - <small>Inc. all vat/tax</small> :</td>
-            <td colspan="1" class="total-heading">${{$totalPrice}}</td>
+            <td colspan="1" class="total-heading">{{$appSetting->currency}} {{$totalPrice}}</td>
             </tr>
         </tbody>
     </table>

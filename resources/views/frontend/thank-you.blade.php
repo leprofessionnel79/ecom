@@ -13,8 +13,8 @@
                 <h5 class="alert alert-success">{{ session('message')}}</h5>
                 @endif
                 <div class="p-4 shadow bg-white">
-                    <h4>Thank You For Shopping With Samadi Ecommerce</h4>
-                    <a href="{{url('collections')}}" class="btn btn-primary">Shop Now</a>
+                    <h4>{{__('customlang.thankYouForShoppingWithSamadiEcommerce')}}</h4>
+                    <a href="{{url('collections')}}" class="btn btn-primary">{{__('customlang.shopNow')}}</a>
                 </div>
             </div>
         </div>

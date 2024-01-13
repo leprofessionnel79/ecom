@@ -25,6 +25,7 @@ class Setting extends Model
         'facebook',
         'twitter',
         'instagram',
-        'youtube'
+        'youtube',
+        'currency',
     ];
 }

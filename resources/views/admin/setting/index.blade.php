@@ -101,6 +101,27 @@
                         </div>
                     </div>
                 </div>
+
+            </div>
+
+            <div class="card-mb-3">
+                <div class="card-header bg-primary">
+                    <h3 class="text-white mb-0">Website - Currency</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <select name="currency" class="form-select">
+                                <option value="{{$setting->currency}}">Select Currency</option>
+                                <option value="USD" {{$setting->currency=='USD' ? 'selected':''}}>USD</option>
+                                <option value="EUR" {{$setting->currency=='EUR' ? 'selected':''}}>EUR</option>
+                                <option value="SYP" {{$setting->currency=='SYP' ? 'selected':''}}>SYP</option>
+                                <option value="SAR" {{$setting->currency=='SAR' ? 'selected':''}}>SAR</option>
+                                <option value="AED" {{$setting->currency=='AED' ? 'selected':''}}>AED</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="text-end">

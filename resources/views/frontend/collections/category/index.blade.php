@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="mb-4">Our Categories</h4>
+                <h4 class="mb-4">{{__('customlang.allCategories')}}</h4>
             </div>
 
             @forelse ($categories as $categoryItem)

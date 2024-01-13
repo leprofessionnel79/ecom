@@ -12,7 +12,7 @@ class CartShow extends Component
     public function decrementQuantity(int $cartId)
     {
         $cartData = Cart::where('id',$cartId)->where('user_id',auth()->user()->id)->first();
-
+        $locale = app()->getLocale();
 
         if($cartData)
         {
@@ -21,9 +21,10 @@ class CartShow extends Component
             {
                 $productColor =  $cartData->productColor()->where('id', $cartData->product_color_id)->first();
 
+
                 if($cartData->quantity <= 1){
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantity cannot be less than 1',
+                        'text' => $locale=='ar'?'الكميه لا يمكن أن تكون أقل من 1' :'Quantity cannot be less than 1',
                         'type' => 'success',
                         'status' => 200
                     ]);
@@ -33,7 +34,7 @@ class CartShow extends Component
                     {
                             $cartData->decrement('quantity');
                         $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantity Updated',
+                        'text' =>$locale=='ar'? 'تم تحديث الكميه':'Quantity Updated',
                         'type' => 'success',
                         'status' => 200
                         ]);
@@ -53,7 +54,7 @@ class CartShow extends Component
                 if($cartData->quantity <= 1){
 
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantity cannot be less than 1',
+                        'text' =>$locale=='ar'?'الكميه لا يمكن أن تكون أقل من 1' :'Quantity cannot be less than 1',
                         'type' => 'success',
                         'status' => 200
                     ]);
@@ -62,7 +63,7 @@ class CartShow extends Component
                     if($cartData->product->quantity >= $cartData->quantity){
                         $cartData->decrement('quantity');
                         $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantity Updated',
+                        'text' => $locale=='ar'? 'تم تحديث الكميه':'Quantity Updated',
                         'type' => 'success',
                         'status' => 200
                         ]);
@@ -80,7 +81,7 @@ class CartShow extends Component
         }else
         {
             $this->dispatchBrowserEvent('message', [
-                'text' => 'Somthin went wrong !',
+                'text' => $locale=='en'? 'Something went wrong!!' :'حدث خطأما!!',
                 'type' => 'error',
                 'status' => 404
                 ]);
@@ -94,6 +95,7 @@ class CartShow extends Component
     public function incrementQuantity(int $cartId)
     {
         $cartData = Cart::where('id',$cartId)->where('user_id',auth()->user()->id)->first();
+        $locale = app()->getLocale();
 
         if($cartData)
         {
@@ -104,7 +106,7 @@ class CartShow extends Component
                 {
                         $cartData->increment('quantity');
                     $this->dispatchBrowserEvent('message', [
-                    'text' => 'Quantity Updated',
+                    'text' => $locale=='ar'? 'تم تحديث الكميه':'Quantity Updated',
                     'type' => 'success',
                     'status' => 200
                     ]);
@@ -123,7 +125,7 @@ class CartShow extends Component
                 if($cartData->product->quantity > $cartData->quantity){
                     $cartData->increment('quantity');
                     $this->dispatchBrowserEvent('message', [
-                    'text' => 'Quantity Updated',
+                    'text' => $locale=='ar'? 'تم تحديث الكميه':'Quantity Updated',
                     'type' => 'success',
                     'status' => 200
                     ]);
@@ -140,7 +142,7 @@ class CartShow extends Component
         }else
         {
             $this->dispatchBrowserEvent('message', [
-                'text' => 'Somthin went wrong !',
+                'text' =>$locale=='en'? 'Something went wrong!!' :'حدث خطأما!!',
                 'type' => 'error',
                 'status' => 404
                 ]);
@@ -151,6 +153,8 @@ class CartShow extends Component
     public function removeCartItem(int $cartId)
     {
         $cartRemoveData = Cart::where('user_id',auth()->user()->id)->where('id',$cartId)->first();
+        $locale = app()->getLocale();
+
         if($cartRemoveData)
         {
             $cartRemoveData->delete();
@@ -158,14 +162,14 @@ class CartShow extends Component
             $this->emit('CartAddedUpdated');
 
             $this->dispatchBrowserEvent('message', [
-            'text' => 'Cart Item Remved Successfully',
+            'text' =>$locale=='ar'?'تم إزالة الماده':($locale=='en'?'Cart Item Remved Successfully':''),
             'type' => 'success',
             'status' => 200
             ]);
         }else
         {
             $this->dispatchBrowserEvent('message', [
-                'text' => 'Something went wrong!!',
+                'text' =>$locale=='en'? 'Something went wrong!!' :'حدث خطأما!!',
                 'type' => 'error',
                 'status' => 500
                 ]);

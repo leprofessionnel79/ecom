@@ -38,11 +38,11 @@
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
+      <span class="visually-hidden">{{__('customlang.previous')}}</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
+      <span class="visually-hidden">{{__('customlang.next')}}</span>
     </button>
   </div>
 
@@ -50,16 +50,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 text-center">
-                <h4>WELCOM TO SAMADI ECOMMERCE</h4>
+                <h4>{{__('customlang.wELCOMTOsAMADIeCOMMERCE')}}</h4>
                     <div class="underline mx-auto"></div>
                         <p>
-                            This handy tool helps you create dummy.
-                            adding new functionality and we .
-                            This handy tool helps you create .
-                            adding new functionality and we.
-                            adding new functionality and we .
-                            This handy tool helps you create .
-                            adding new functionality and we.
+                            {{__('customlang.website_description')}}
                         </p>
             </div>
         </div>
@@ -70,7 +64,7 @@
     <div class="container">
         <div class="row ">
             <div class="col-md-12">
-                <h4>Trending Products</h4>
+                <h4>{{__('customlang.trendingProducts')}}</h4>
                 <div class="underline mb-4"></div>
             </div>
             @if ($trendingProducts)
@@ -80,7 +74,7 @@
                     <div class="item">
                         <div class="product-card">
                             <div class="product-card-img">
-                                <label class="stock bg-danger">New</label>
+                                <label class="stock bg-danger">{{__('customlang.new')}}</label>
                                 @if ($productItem->productImages->count()>0)
                                 <a href="{{url('/collections/'.$productItem->category->slug.'/'.$productItem->slug)}}">
                                 <img src="{{asset($productItem->productImages[0]->image)}}" alt="{{$productItem->name}}">
@@ -95,8 +89,8 @@
                                 </a>
                                 </h5>
                                 <div>
-                                    <span class="selling-price">${{$productItem->selling_price}}</span>
-                                    <span class="original-price">${{$productItem->original_price}}</span>
+                                    <span class="selling-price">{{$appSetting->currency}} {{$productItem->selling_price}}</span>
+                                    <span class="original-price">{{$appSetting->currency}} {{$productItem->original_price}}</span>
                                 </div>
 
                             </div>
@@ -108,7 +102,7 @@
             @else
             <div class="col-md-12">
                 <div class="p-2">
-                    <h4>No Products Available </h4>
+                    <h4>{{__('customlang.noProductsAvailable')}} </h4>
                 </div>
             </div>
             @endif
@@ -120,8 +114,8 @@
     <div class="container">
         <div class="row ">
             <div class="col-md-12">
-                <h4>New Arrivals
-                    <a href="{{url('new-arrivals')}}" class="btn btn-warning float-end">View More</a>
+                <h4>{{__('customlang.newArrivals')}}
+                    <a href="{{url('new-arrivals')}}" class="btn btn-warning float-end">{{__('customlang.viewMore')}}</a>
                 </h4>
                 <div class="underline mb-4"></div>
             </div>
@@ -132,7 +126,7 @@
                     <div class="item">
                         <div class="product-card">
                             <div class="product-card-img">
-                                <label class="stock bg-danger">New</label>
+                                <label class="stock bg-danger">{{__('customlang.new')}}</label>
                                 @if ($productItem->productImages->count()>0)
                                 <a href="{{url('/collections/'.$productItem->category->slug.'/'.$productItem->slug)}}">
                                 <img src="{{asset($productItem->productImages[0]->image)}}" alt="{{$productItem->name}}">
@@ -147,8 +141,8 @@
                                 </a>
                                 </h5>
                                 <div>
-                                    <span class="selling-price">${{$productItem->selling_price}}</span>
-                                    <span class="original-price">${{$productItem->original_price}}</span>
+                                    <span class="selling-price">{{$appSetting->currency}} {{$productItem->selling_price}}</span>
+                                    <span class="original-price">{{$appSetting->currency}} {{$productItem->original_price}}</span>
                                 </div>
 
                             </div>
@@ -160,7 +154,7 @@
             @else
             <div class="col-md-12">
                 <div class="p-2">
-                    <h4>No New Arrivals Available </h4>
+                    <h4>{{__('customlang.noNewArrivalsAvailable')}} </h4>
                 </div>
             </div>
             @endif
@@ -172,8 +166,8 @@
     <div class="container">
         <div class="row ">
             <div class="col-md-12">
-                <h4>Featured Products
-                    <a href="{{url('featured-products')}}" class="btn btn-warning float-end">View More</a>
+                <h4>{{__('customlang.featuredProducts')}}
+                    <a href="{{url('featured-products')}}" class="btn btn-warning float-end">{{__('customlang.viewMore')}}</a>
                 </h4>
                 <div class="underline mb-4"></div>
             </div>
@@ -184,7 +178,7 @@
                     <div class="item">
                         <div class="product-card">
                             <div class="product-card-img">
-                                <label class="stock bg-danger">New</label>
+                                <label class="stock bg-danger">{{__('customlang.new')}}</label>
                                 @if ($productItem->productImages->count()>0)
                                 <a href="{{url('/collections/'.$productItem->category->slug.'/'.$productItem->slug)}}">
                                 <img src="{{asset($productItem->productImages[0]->image)}}" alt="{{$productItem->name}}">
@@ -199,8 +193,8 @@
                                 </a>
                                 </h5>
                                 <div>
-                                    <span class="selling-price">${{$productItem->selling_price}}</span>
-                                    <span class="original-price">${{$productItem->original_price}}</span>
+                                    <span class="selling-price">{{$appSetting->currency}} {{$productItem->selling_price}}</span>
+                                    <span class="original-price">{{$appSetting->currency}} {{$productItem->original_price}}</span>
                                 </div>
 
                             </div>
@@ -212,7 +206,7 @@
             @else
             <div class="col-md-12">
                 <div class="p-2">
-                    <h4>No Featured Products Available </h4>
+                    <h4>{{__('customlang.noFeaturedProductsAvailable')}} </h4>
                 </div>
             </div>
             @endif

@@ -106,11 +106,9 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
     });
 
-
     Route::get('/brands',App\Http\Livewire\Admin\Brand\Index::class);
 
     // color routes
-
 
     Route::controller(App\Http\Controllers\Admin\ColorController::class)->group(function () {
 
@@ -132,10 +130,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
         Route::get('/invoice/{orderId}/generate', 'generateInvoice');
         Route::get('/invoice/{orderId}/mail', 'mailInvoice');
 
-
-
     });
-
 
     Route::controller(App\Http\Controllers\Admin\UserController::class)->group(function () {
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Invoice #{{$order->id}}</title>
+    <title>{{__('customlang.invoice')}} #{{$order->id}}</title>
 
     <style>
         html,
@@ -81,10 +81,10 @@
 <body>
 
     <div class="text-center">
-        <h2>Thank you For your Order</h2>
-        <p>Thank you for purchasing with {{$appSetting->website_name ??"SAMADI ECOM"}}.
+        <h2>{{__('customlang.thankYouForYourOrder')}}</h2>
+        <p>{{__('customlang.thankYouForYourPurchasingWith')}} {{$appSetting->website_name ??"SAMADI ECOM"}}.
          <br/>
-           Your Order Items and Details are provided below
+         {{__('customlang.yourOrderItemsAndDetailsAreProvidedBelow')}}
         </p>
     </div>
     <table class="order-details">
@@ -95,47 +95,47 @@
                 </th>
                 <th width="50%" colspan="2" class="text-end company-data">
                     <span>Invoice Id: #{{$order->id}}</span> <br>
-                    <span>Date: {{date('d / m / Y')}}</span> <br>
+                    <span>{{__('customlang.date')}}: {{date('d / m / Y')}}</span> <br>
                     <span>Zip code : 560077</span> <br>
-                    <span>Address: Damas Syria</span> <br>
+                    <span>{{__('customlang.address')}}: Damas Syria</span> <br>
                 </th>
             </tr>
             <tr class="bg-blue">
-                <th width="50%" colspan="2">Order Details</th>
-                <th width="50%" colspan="2">User Details</th>
+                <th width="50%" colspan="2">{{__('customlang.orderDetails')}}</th>
+                <th width="50%" colspan="2">{{__('customlang.userDetails')}}</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Order Id:</td>
+                <td>{{__('customlang.orderID')}}:</td>
                 <td>{{$order->id}}</td>
 
-                <td>Full Name:</td>
+                <td>{{__('customlang.fullName')}}:</td>
                 <td>{{$order->fullname}}</td>
             </tr>
             <tr>
                 <td>Tracking Id/No.:</td>
                 <td>{{$order->tracking_no}}</td>
 
-                <td>Email Id:</td>
+                <td>{{__('customlang.emailID')}}:</td>
                 <td>{{$order->email}}</td>
             </tr>
             <tr>
-                <td>Ordered Date:</td>
+                <td>{{__('customlang.orderDate')}}:</td>
                 <td>{{$order->created_at->format('d-m-Y h:i A')}}</td>
 
-                <td>Phone:</td>
+                <td>{{__('customlang.phone')}}:</td>
                 <td>{{$order->phone}}</td>
             </tr>
             <tr>
-                <td>Payment Mode:</td>
+                <td>{{__('customlang.paymentMode')}}:</td>
                 <td>{{$order->payment_mode}}</td>
 
-                <td>Address:</td>
+                <td>{{__('customlang.address')}}:</td>
                 <td>{{$order->address}}</td>
             </tr>
             <tr>
-                <td>Order Status:</td>
+                <td>{{__('customlang.orderStatus')}}:</td>
                 <td>{{$order->status_message}}</td>
 
                 <td>Pin code:</td>
@@ -148,15 +148,15 @@
         <thead>
             <tr>
                 <th class="no-border text-start heading" colspan="5">
-                    Order Items
+                    {{__('customlang.orderItems')}}
                 </th>
             </tr>
             <tr class="bg-blue">
                 <th>ID</th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
+                <th>{{__('customlang.product')}}</th>
+                <th>{{__('customlang.price')}}</th>
+                <th>{{__('customlang.quantity')}}</th>
+                <th>{{__('customlang.total')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -170,28 +170,28 @@
                 {{$orderItem->product->name}}
                 @if ($orderItem->productColor)
                     @if ($orderItem->productColor->color)
-                    <span>- Color: {{ $orderItem->productColor->color->name }}</span>
+                    <span>- {{__('customlang.color')}}: {{ $orderItem->productColor->color->name }}</span>
                     @endif
                 @endif
             </td>
             <td width="10%">${{$orderItem->price}}</td>
             <td width="10%">{{$orderItem->quantity}}</td>
-            <td width="15%" class="fw-bold">${{$orderItem->quantity * $orderItem->price}}</td>
+            <td width="15%" class="fw-bold">{{$appSetting->currency}} {{$orderItem->quantity * $orderItem->price}}</td>
             @php
             $totalPrice += $orderItem->quantity * $orderItem->price;
             @endphp
             </tr>
             @endforeach
             <tr>
-            <td colspan="4" class="total-heading">Total Amount - <small>Inc. all vat/tax</small> :</td>
-            <td colspan="1" class="total-heading">${{$totalPrice}}</td>
+            <td colspan="4" class="total-heading">{{__('customlang.totalAmount')}} - <small>Inc. all vat/tax</small> :</td>
+            <td colspan="1" class="total-heading">{{$appSetting->currency}} {{$totalPrice}}</td>
             </tr>
         </tbody>
     </table>
 
     <br>
     <p class="text-center">
-        Thank you for shopping with SAMADI Ecommerce
+        {{__('customlang.thankYouForShoppingWith')}} {{$appSetting->website_name}}
     </p>
 
 </body>

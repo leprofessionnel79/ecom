@@ -9,19 +9,19 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="shadow bg-white p-3">
-                    <h4 class="mb-4">My Orders</h4>
+                    <h4 class="mb-4">{{__('customlang.myOrders')}}</h4>
                     <hr>
 
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Order Id</th>
+                                    <th>{{__('customlang.orderID')}}</th>
                                     <th>Traking No</th>
-                                    <th>Username</th>
-                                    <th>Payment Mode</th>
-                                    <th>Order Date</th>
-                                    <th>Status Message</th>
+                                    <th>{{__('customlang.userName')}}</th>
+                                    <th>{{__('customlang.paymentMode')}}</th>
+                                    <th>{{__('customlang.orderDate')}}</th>
+                                    <th>{{__('customlang.orderStatusMessage')}}</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -34,11 +34,11 @@
                                  <td>{{$item->payment_mode}}</td>
                                  <td>{{$item->created_at->format('d-m-Y')}}</td>
                                  <td>{{$item->status_message}}</td>
-                                 <td><a href="{{url('orders/'.$item->id)}}" class="btn btn-primary btn-sm">View</a></td>
+                                 <td><a href="{{url('orders/'.$item->id)}}" class="btn btn-primary btn-sm">{{__('customlang.view')}}</a></td>
                                </tr>
                              @empty
                               <tr>
-                                <td colspan="7">No Orders Available</td>
+                                <td colspan="7">{{__('customlang.noOrdersAvailable')}}</td>
                               </tr>
                              @endforelse
                             </tbody>

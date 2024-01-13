@@ -9,13 +9,13 @@
                         <div class="cart-header d-none d-sm-none d-mb-block d-lg-block">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h4>Products</h4>
+                                    <h4>{{__('customlang.products')}}</h4>
                                 </div>
                                 <div class="col-md-2">
-                                    <h4>Price</h4>
+                                    <h4>{{__('customlang.price')}}</h4>
                                 </div>
                                 <div class="col-md-4">
-                                    <h4>Remove</h4>
+                                    <h4>{{__('customlang.remove')}}</h4>
                                 </div>
                             </div>
                         </div>
@@ -34,16 +34,16 @@
                                         </a>
                                     </div>
                                     <div class="col-md-2 my-auto">
-                                        <label class="price">${{$wishlistItem->product->selling_price}} </label>
+                                        <label class="price">{{$appSetting->currency}} {{$wishlistItem->product->selling_price}} </label>
                                     </div>
                                     <div class="col-md-4 col-12 my-auto">
                                         <div class="remove">
                                             <button type="button" wire:click="removeWishlistItem({{$wishlistItem->id}})" class="btn btn-danger btn-sm">
                                                 <span wire:loading.remove wire:target="removeWishlistItem({{$wishlistItem->id}})">
-                                                    <i class="fa fa-trash"></i> Remove
+                                                    <i class="fa fa-trash"></i> {{__('customlang.remove')}}
                                                 </span>
                                                 <span wire:loading wire:target="removeWishlistItem({{$wishlistItem->id}})">
-                                                    <i class="fa fa-trash"></i> Removing
+                                                    <i class="fa fa-trash"></i> {{__('customlang.removing')}}
                                                 </span>
                                             </button>
                                         </div>
@@ -52,7 +52,7 @@
                             </div>
                             @endif
                         @empty
-                          <h4>No Wishlist Added</h4>
+                          <h4>{{__('customlang.noWishListAdded')}}</h4>
                         @endforelse
 
 

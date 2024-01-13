@@ -17,6 +17,7 @@ class SettingController extends Controller
     public function store(Request $request)
     {
         $setting =Setting::first();
+        $locale = app()->getLocale();
 
         if($setting)
         {
@@ -34,8 +35,14 @@ class SettingController extends Controller
                 'facebook'=>$request->facebook,
                 'twitter'=>$request->twitter,
                 'instagram'=>$request->instagram,
-                'youtube'=>$request->youtube
+                'youtube'=>$request->youtube,
+                'currency'=>$request->currency,
             ]);
+
+
+            if($locale=='ar'){
+                return redirect()->back()->with('message','تم حفض الاعدادات');
+            }
 
             return redirect()->back()->with('message','Settings Saved');
 
@@ -54,9 +61,14 @@ class SettingController extends Controller
                 'facebook'=>$request->facebook,
                 'twitter'=>$request->twitter,
                 'instagram'=>$request->instagram,
-                'youtube'=>$request->youtube
+                'youtube'=>$request->youtube,
+                'currency'=>$request->currency,
             ]);
 
+
+            if($locale=='ar'){
+                return redirect()->back()->with('message','تم حفض الاعدادات');
+            }
             return redirect()->back()->with('message','Settings Saved');
         }
     }

@@ -21,15 +21,15 @@
                     @endforeach
                  </ul>
                 @endif
-                <h4>User Profile
-                    <a href="{{url('change-password')}}" class="btn btn-warning float-end">Cange Password ?</a>
+                <h4>{{__('customlang.userProfile')}}
+                    <a href="{{url('change-password')}}" class="btn btn-warning float-end">{{__('customlang.changePassword')}}</a>
                 </h4>
                 <div class="underline mb-4"></div>
             </div>
             <div class="col-md-10">
                 <div class="card-shadow">
                     <div class="card-header bg-primary">
-                        <h4 class="mb-0 text-white">User Details</h4>
+                        <h4 class="mb-0 text-white">{{__('customlang.userDetails')}}</h4>
                     </div>
                     <div class="card-body">
                         <form action="{{url('profile')}}" method="POST">
@@ -37,19 +37,19 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label>Username</label>
+                                        <label>{{__('customlang.userName')}}</label>
                                         <input type="text" name="username" value="{{Auth::user()->name}}" class="form-control"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label>Email Address</label>
+                                        <label>{{__('customlang.emailAddress')}}</label>
                                         <input type="text" readonly value="{{Auth::user()->email}}"  class="form-control"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label>Phone Number</label>
+                                        <label>{{__('customlang.phonrNumber')}}</label>
                                         <input type="text" name="phone" value="{{Auth::user()->userDetail->phone??''}}" class="form-control"/>
                                     </div>
                                 </div>
@@ -61,12 +61,12 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label>Address</label>
+                                        <label>{{__('customlang.address')}}</label>
                                         <textarea name="address" class="form-control"  rows="3">{{Auth::user()->userDetail->address??''}}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary">Save Data</button>
+                                    <button type="submit" class="btn btn-primary">{{__('customlang.saveData')}}</button>
                                 </div>
                             </div>
                         </form>

@@ -13,12 +13,12 @@ class View extends Component
 
     public function addToWishList($productId)
     {
-
+        $locale = app()->getLocale();
         if(Auth::check()){
             if(Wishlist::where('user_id',auth()->user()->id)->where('product_id',$productId)->exists()){
                 session()->flash('message','already added to wishlist');
                 $this->dispatchBrowserEvent('message', [
-                    'text' => 'already added to wishlist',
+                    'text' =>$locale=='en'? 'already added to wishlist':($locale=='ar'?'المنتج موجود في المفضله':''),
                     'type' => 'warning',
                     'status' => 409
                 ]);
@@ -32,7 +32,7 @@ class View extends Component
                 $this->emit('wishlistAddedUpdated');
                 session()->flash('message','Wishlist Added Successfully');
                 $this->dispatchBrowserEvent('message', [
-                    'text' => 'Wishlist Added Successfully',
+                    'text' =>$locale=='en'? 'Wishlist Added Successfully':($locale=='ar'?'تم الاضافه للمفضله':''),
                     'type' => 'success',
                     'status' => 200
                 ]);
@@ -42,7 +42,7 @@ class View extends Component
         }else{
             session()->flash('message','please login to continue');
             $this->dispatchBrowserEvent('message', [
-                'text' => 'please login to continue',
+                'text' =>$locale=='en'? 'please login to add to cart':($locale=='ar'?'يرجى تسجيل الدخول أولا':''),
                 'type' => 'info',
                 'status' => 401
             ]);
@@ -78,6 +78,7 @@ class View extends Component
 
     public function addToCart(int $productId)
     {
+        $locale = app()->getLocale();
        if(Auth::check())
        {
 
@@ -93,7 +94,7 @@ class View extends Component
                     ->where('product_color_id',$this->productColorId)->exists())
                     {
                         $this->dispatchBrowserEvent('message', [
-                            'text' => 'Product Already Added',
+                            'text' =>$locale=='en'? 'Product Already Added' :'المنتج موجود في السله',
                             'type' => 'warning',
                             'status' => 200
                             ]);
@@ -116,7 +117,7 @@ class View extends Component
                                 $this->emit('CartAddedUpdated');
 
                                 $this->dispatchBrowserEvent('message', [
-                                'text' => 'Product Added To Cart',
+                                'text' =>$locale=='en'? 'Product Added To Cart' : 'تم اضافة المنتج للسله',
                                 'type' => 'success',
                                 'status' => 200
                                 ]);
@@ -147,7 +148,7 @@ class View extends Component
                 else
                 {
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Select Your Product Color',
+                        'text' =>$locale=='en'? 'Select Your Product Color' :'اختر لون المنتج',
                         'type' => 'info',
                         'status' => 404
                     ]);
@@ -160,7 +161,7 @@ class View extends Component
                 if(Cart::where('user_id',auth()->user()->id)->where('product_id',$productId)->exists())
                 {
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Product Already Added',
+                        'text' => $locale=='en'? 'Product Already Added' :'المنتج موجود في السله',
                         'type' => 'warning',
                         'status' => 200
                     ]);
@@ -180,7 +181,7 @@ class View extends Component
                                 $this->emit('CartAddedUpdated');
 
                                 $this->dispatchBrowserEvent('message', [
-                                'text' => 'Product Added To Cart',
+                                'text' => $locale=='en'? 'Product Added To Cart' : 'تم اضافة المنتج للسله',
                                 'type' => 'success',
                                 'status' => 200
                                 ]);
@@ -210,7 +211,7 @@ class View extends Component
           else
           {
             $this->dispatchBrowserEvent('message', [
-                'text' => 'Product dose not exists',
+                'text' =>$locale=='en'? 'Product dose not exists':($locale=='ar'? 'المنتج غير متوفر':''),
                 'type' => 'warning',
                 'status' => 404
             ]);
@@ -221,7 +222,7 @@ class View extends Component
        else
        {
         $this->dispatchBrowserEvent('message', [
-                        'text' => 'please login to add to cart',
+                        'text' =>$locale=='en'? 'please login to add to cart':($locale=='ar'?'يرجى تسجيل الدخول أولا':''),
                         'type' => 'warning',
                         'status' => 404
                     ]);
@@ -246,99 +247,4 @@ class View extends Component
 }
 
 
-// if(Auth::check()){
-//     if($this->product->where('id',$productId)->where('status','0')->exists()){
 
-//         //check for color product quantity
-//         if($this->product->productColors()->count() > 1){
-//                 if($this->productColorSelectedQuantity != NULL)
-//                 {
-//                    $productColor = $this->product->productColors()->where('id', $this->productColorId)->first();
-//                    if($productColor->quantity > 0)
-//                    {
-//                         if($productColor->quantity > $this->quantityCount){
-//                            // add to cart table
-
-//                            Cart::create([
-//                             'user_id'=>auth()->user()->id,
-//                             'product_id'=> $productId,
-//                             'product_color_id'=> $this->productColorId,
-//                             'quantity'=> $this->quantityCount
-//                            ]);
-
-//                            $this->dispatchBrowserEvent('message', [
-//                             'text' => 'Product Added To Cart',
-//                             'type' => 'success',
-//                             'status' => 200
-//                            ]);
-//                         }else{
-//                         $this->dispatchBrowserEvent('message', [
-//                             'text' => 'Only '.$productColor->quantity.' Quantity Avilable',
-//                             'type' => 'warning',
-//                             'status' => 404
-//                         ]);
-//                         }
-
-//                    }else{
-//                     $this->dispatchBrowserEvent('message', [
-//                         'text' => 'Out Of Stock',
-//                         'type' => 'warning',
-//                         'status' => 404
-//                     ]);
-//                    }
-//                 }
-//                 else
-//                 {
-//                     $this->dispatchBrowserEvent('message', [
-//                         'text' => 'Select your ProductColor ',
-//                         'type' => 'info',
-//                         'status' => 404
-//                     ]);
-//                 }
-//         }
-
-//         else{
-//            if($this->product->quantity > 0){
-//                 if($this->product->quantity > $this->quantityCount){
-
-//                     Cart::create([
-//                         'user_id'=>auth()->user()->id,
-//                         'product_id'=> $productId,
-//                         'quantity'=> $this->quantityCount
-//                        ]);
-
-//                        $this->dispatchBrowserEvent('message', [
-//                         'text' => 'Product Added To Cart',
-//                         'type' => 'success',
-//                         'status' => 200
-//                        ]);
-//                 }else{
-//                 $this->dispatchBrowserEvent('message', [
-//                     'text' => 'Only '.$this->product->quantity.' Quantity Avilable',
-//                     'type' => 'warning',
-//                     'status' => 404
-//                 ]);
-//                 }
-//            }else{
-//             $this->dispatchBrowserEvent('message', [
-//                 'text' => 'Out Of Stock',
-//                 'type' => 'warning',
-//                 'status' => 404
-//             ]);
-//            }
-//         }
-
-//     }else{
-//         $this->dispatchBrowserEvent('message', [
-//             'text' => 'please login to add to cart',
-//             'type' => 'warning',
-//             'status' => 404
-//         ]);
-//     }
-// }else{
-//     $this->dispatchBrowserEvent('message', [
-//         'text' => 'please login to add to cart',
-//         'type' => 'info',
-//         'status' => 401
-//     ]);
-// }

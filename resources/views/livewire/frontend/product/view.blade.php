@@ -21,7 +21,7 @@
                             </p>
                           </div>
                         @else
-                            No Image Added
+                           {{__('customlang.noImageAdded')}}
                         @endif
                     </div>
                 </div>
@@ -33,14 +33,14 @@
                         </h4>
                         <hr>
                         <p class="product-path">
-                            Home / {{$product->category->name}} / {{$product->name}}
+                            {{__('customlang.homePage')}} / {{$product->category->name}} / {{$product->name}}
                         </p>
                         <p class="product-path">
-                            Brand : {{$product->brand}}
+                            {{__('customlang.brand')}} : {{$product->brand}}
                         </p>
                         <div>
-                            <span class="selling-price">${{$product->selling_price}}</span>
-                            <span class="original-price">${{$product->original_price}}</span>
+                            <span class="selling-price">{{$appSetting->currency}} {{$product->selling_price}}</span>
+                            <span class="original-price">{{$appSetting->currency}} {{$product->original_price}}</span>
                         </div>
                         <div>
                             @if ($product->productColors->count()>0)
@@ -57,16 +57,16 @@
 
                                     <div>
                                         @if ($this->productColorSelectedQuantity=='OutOfStock')
-                                        <label class="btn-sm py-1 mt-2 text-white bg-danger">Out Of Stock</label>
+                                        <label class="btn-sm py-1 mt-2 text-white bg-danger">{{__('customlang.outOfStock')}}</label>
                                         @elseif ($this->productColorSelectedQuantity >0)
-                                        <label class="btn-sm py-1 mt-2 text-white bg-success">In Stock</label>
+                                        <label class="btn-sm py-1 mt-2 text-white bg-success">{{__('customlang.inStock')}}</label>
                                         @endif
                                     </div>
                             @else
                                @if ($product->quantity)
-                               <label class="btn-sm py-1 mt-2 text-white bg-success">In Stock</label>
+                               <label class="btn-sm py-1 mt-2 text-white bg-success">{{__('customlang.inStock')}}</label>
                                @else
-                               <label class="btn-sm py-1 mt-2 text-white bg-danger">Out Of Stock</label>
+                               <label class="btn-sm py-1 mt-2 text-white bg-danger">{{__('customlang.outOfStock')}}</label>
                                @endif
 
                             @endif
@@ -83,13 +83,13 @@
                                 </i> Add To Cart</button>
                             <button type="button" wire:click="addToWishList({{$product->id}})" class="btn btn1">
                                <span wire:loading.remove wire:target="addToWishList({{$product->id}})">
-                                <i class="fa fa-heart"></i> Add To Wishlist
+                                <i class="fa fa-heart"></i>{{__('customlang.addTowishList')}}
                                </span>
-                               <span wire:loading wire:target="addToWishList">Adding ...</span>
+                               <span wire:loading wire:target="addToWishList">{{__('customlang.adding...')}}</span>
                             </button>
                         </div>
                         <div class="mt-3">
-                            <h5 class="mb-0">Small Description</h5>
+                            <h5 class="mb-0">{{__('customlang.smallDescription')}}</h5>
                             <p>
                                 {!!$product->small_description!!}
                             </p>
@@ -101,7 +101,7 @@
                 <div class="col-md-12 mt-3">
                     <div class="card">
                         <div class="card-header bg-white">
-                            <h4>Description</h4>
+                            <h4>{{__('customlang.description')}}</h4>
                         </div>
                         <div class="card-body">
                             <p>
@@ -118,11 +118,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-3">
-                    <h3>Related
+                    <h3>{{__('customlang.related')}}
                         @if ($category)
                          {{$category->name}}
                         @endif
-                         Products</h3>
+                        {{__('customlang.products')}}</h3>
                     <div class="underline"></div>
                 </div>
                 <div class="col-md-12">
@@ -146,8 +146,8 @@
                                     </a>
                                     </h5>
                                     <div>
-                                        <span class="selling-price">${{$relatedProductItem->selling_price}}</span>
-                                        <span class="original-price">${{$relatedProductItem->original_price}}</span>
+                                        <span class="selling-price">{{$appSetting->currency}} {{$relatedProductItem->selling_price}}</span>
+                                        <span class="original-price">{{$appSetting->currency}} {{$relatedProductItem->original_price}}</span>
                                     </div>
 
                                 </div>
@@ -157,7 +157,7 @@
                     </div>
                     @else
                         <div class="p-2">
-                            <h4>No Related Products Available </h4>
+                            <h4>{{__('customlang.noRelatedProductsAvailabe')}}</h4>
                         </div>
                     @endif
                 </div>
@@ -169,11 +169,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-3">
-                    <h3>Related
+                    <h3>{{__('customlang.related')}}
                         @if ($product)
                          {{$product->brand}}
                         @endif
-                         Products</h3>
+                        {{__('customlang.products')}}</h3>
                     <div class="underline"></div>
                 </div>
                 <div class="col-md-12">
@@ -198,8 +198,8 @@
                                         </a>
                                         </h5>
                                         <div>
-                                            <span class="selling-price">${{$relatedProductItem->selling_price}}</span>
-                                            <span class="original-price">${{$relatedProductItem->original_price}}</span>
+                                            <span class="selling-price">{{$appSetting->currency}} {{$relatedProductItem->selling_price}}</span>
+                                            <span class="original-price">{{$appSetting->currency}} {{$relatedProductItem->original_price}}</span>
                                         </div>
 
                                     </div>
@@ -210,7 +210,7 @@
                     </div>
                     @else
                         <div class="p-2">
-                            <h4>No Related Products Available </h4>
+                            <h4>{{__('customlang.noRelatedProductsAvailabe')}}</h4>
                         </div>
                     @endif
                 </div>

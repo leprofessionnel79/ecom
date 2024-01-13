@@ -8,14 +8,14 @@
     <div class="container">
         <div class="row ">
             <div class="col-md-12">
-                <h4>Featured Products</h4>
+                <h4>{{__('customlang.featuredProducts')}}</h4>
                 <div class="underline mb-4"></div>
             </div>
                 @forelse ($featuredProducts as $productItem )
                 <div class="col-md-3">
                     <div class="product-card">
                         <div class="product-card-img">
-                            <label class="stock bg-danger">New</label>
+                            <label class="stock bg-danger">{{__('customlang.new')}}</label>
                             @if ($productItem->productImages->count()>0)
                             <a href="{{url('/collections/'.$productItem->category->slug.'/'.$productItem->slug)}}">
                             <img src="{{asset($productItem->productImages[0]->image)}}" alt="{{$productItem->name}}">
@@ -30,8 +30,8 @@
                             </a>
                             </h5>
                             <div>
-                                <span class="selling-price">${{$productItem->selling_price}}</span>
-                                <span class="original-price">${{$productItem->original_price}}</span>
+                                <span class="selling-price">{{$appSetting->currency}} {{$productItem->selling_price}}</span>
+                                <span class="original-price">{{$appSetting->currency}} {{$productItem->original_price}}</span>
                             </div>
 
                         </div>
@@ -39,12 +39,12 @@
                 </div>
                 @empty
                 <div class="col-md-12 p-2">
-                    <h4>No Featured Products Available </h4>
+                    <h4>{{__('customlang.noFeaturedProductsAvailabe')}}</h4>
                 </div>
                 @endforelse
 
                 <div class="text-center">
-                   <a href="{{url('collections')}}" class="btn btn-warning px-3">View More</a>
+                   <a href="{{url('collections')}}" class="btn btn-warning px-3">{{__('customlang.viewMore')}}</a>
                 </div>
         </div>
     </div>

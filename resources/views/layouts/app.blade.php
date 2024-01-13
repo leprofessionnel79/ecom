@@ -33,7 +33,8 @@
 
     <style>
         *{
-            font-family: 'Cairo'
+            font-family: 'Cairo';
+            font-weight: 500;
         }
     </style>
 

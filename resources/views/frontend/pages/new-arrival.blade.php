@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row ">
             <div class="col-md-12">
-                <h4>New Arrivals</h4>
+                <h4>{{__('customlang.newArrivals')}}</h4>
                 <div class="underline mb-4"></div>
             </div>
                 @forelse ($newArrivalsProducts as $productItem )
@@ -30,8 +30,8 @@
                             </a>
                             </h5>
                             <div>
-                                <span class="selling-price">${{$productItem->selling_price}}</span>
-                                <span class="original-price">${{$productItem->original_price}}</span>
+                                <span class="selling-price">{{$appSetting->currency}} {{$productItem->selling_price}}</span>
+                                <span class="original-price">{{$appSetting->currency}} {{$productItem->original_price}}</span>
                             </div>
 
                         </div>
@@ -39,12 +39,12 @@
                 </div>
                 @empty
                 <div class="col-md-12 p-2">
-                    <h4>No Products Available </h4>
+                    <h4>{{__('customlang.noProductsAvailable')}}</h4>
                 </div>
                 @endforelse
 
                 <div class="text-center">
-                   <a href="{{url('collections')}}" class="btn btn-warning px-3">View More</a>
+                   <a href="{{url('collections')}}" class="btn btn-warning px-3">{{__('customlang.viewMore')}}</a>
                 </div>
         </div>
     </div>

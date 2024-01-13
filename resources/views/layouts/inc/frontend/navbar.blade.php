@@ -92,19 +92,19 @@
                         <a class="nav-link" href="{{url('/featured-products')}}">{{__('customlang.featuredProducts')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Electronics</a>
+                        <a class="nav-link" href="#">{{__('customlang.electronics')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Fashions</a>
+                        <a class="nav-link" href="#">{{__('customlang.fashions')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Accessories</a>
+                        <a class="nav-link" href="#">{{__('customlang.accessories')}}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('langConverter/en')}}">English</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="font-family: cairo;font-weight:bold;" href="{{url('langConverter/ar')}}">العربيه</a>
+                        <a class="nav-link" style="font-family: cairo;" href="{{url('langConverter/ar')}}">العربيه</a>
                     </li>
                 </ul>
             </div>
