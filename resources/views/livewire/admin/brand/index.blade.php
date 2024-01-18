@@ -7,8 +7,8 @@
             <div class="card">
                 <div class="card-header">
                     <h4>
-                        Brands List
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#addBrandModal" class="btn btn-primary btn-sm float-end">Add Brands</a>
+                        {{__('customlang.brandList')}}
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#addBrandModal" class="btn btn-primary btn-sm float-end text-white">{{__('customlang.addBrand')}}</a>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -16,10 +16,10 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Category</th>
+                            <th> {{__('customlang.name')}}</th>
+                            <th>{{__('customlang.category')}}</th>
                             <th>Slug</th>
-                            <th>Status</th>
+                            <th>{{__('customlang.status')}}</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -32,19 +32,19 @@
                                 @if ($brand->category)
                                 {{$brand->category->name}}
                                 @else
-                                No Category
+                                {{__('customlang.noCategory')}}
                                 @endif
                             </td>
                             <td>{{$brand->slug}}</td>
                             <td>{{$brand->status == '1'?'hidden':'visible'}}</td>
                             <td>
-                                <a href="#" wire:click="editBrand({{$brand->id}})" data-bs-toggle="modal" data-bs-target="#updateBrandModal" class="btn btn-sml btn-success">Edit</a>
-                                <a href="#" wire:click="deleteBrand({{$brand->id}})"  data-bs-toggle="modal" data-bs-target="#deleteBrandModal" class="btn btn-sml btn-danger">Delete</a>
+                                <a href="#" wire:click="editBrand({{$brand->id}})" data-bs-toggle="modal" data-bs-target="#updateBrandModal" class="btn btn-sml btn-success text-white">{{__('customlang.edit')}}</a>
+                                <a href="#" wire:click="deleteBrand({{$brand->id}})"  data-bs-toggle="modal" data-bs-target="#deleteBrandModal" class="btn btn-sml btn-danger text-white">{{__('customlang.delete')}}</a>
                             </td>
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="5">No Brands Found</td>
+                            <td colspan="5">{{__('customlang.noBrandsFound')}}</td>
                         </tr>
 
                         @endforelse

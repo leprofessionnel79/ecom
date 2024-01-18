@@ -48,7 +48,7 @@
                                     @foreach ($product->productColors as $colorItem)
                                         {{-- <input type="radio" name="colorSelection" value="{{$colorItem->id}}" /> {{$colorItem->color->name}} --}}
                                         <label class="colorSelectionLable" style="background-color:{{$colorItem->color->code}}"
-                                            wire:click="colorSelected({{$colorItem->id}})"
+                                             wire:click="colorSelected({{$colorItem->id}})"
                                             >
                                             {{$colorItem->color->name}}
                                         </label>
@@ -80,10 +80,10 @@
                         </div>
                         <div class="mt-2">
                             <button type="button" wire:click="addToCart({{$product->id}})" class="btn btn1"> <i class="fa fa-shopping-cart">
-                                </i> Add To Cart</button>
+                                </i> {{__('customlang.addToCart')}}</button>
                             <button type="button" wire:click="addToWishList({{$product->id}})" class="btn btn1">
                                <span wire:loading.remove wire:target="addToWishList({{$product->id}})">
-                                <i class="fa fa-heart"></i>{{__('customlang.addTowishList')}}
+                                <i class="fa fa-heart"></i> {{__('customlang.addTowishList')}}
                                </span>
                                <span wire:loading wire:target="addToWishList">{{__('customlang.adding...')}}</span>
                             </button>
@@ -125,11 +125,11 @@
                         {{__('customlang.products')}}</h3>
                     <div class="underline"></div>
                 </div>
-                <div class="col-md-12">
+                <div  class="col-md-12">
                     @if ($category)
-                    <div class="owl-carousel owl-theme four-carousel">
+                    <div wire:ignore class="owl-carousel owl-theme four-carousel">
                         @foreach ($category->relatedProducts as $relatedProductItem )
-                        <div class="item mb-3">
+                        <div  class="item mb-3">
                             <div class="product-card">
                                 <div class="product-card-img">
                                     @if ($relatedProductItem->productImages->count()>0)
@@ -178,7 +178,7 @@
                 </div>
                 <div class="col-md-12">
                     @if ($category)
-                    <div class="owl-carousel owl-theme four-carousel">
+                    <div wire:ignore class="owl-carousel owl-theme four-carousel">
                             @foreach ($category->relatedProducts as $relatedProductItem )
                             @if ($relatedProductItem->brand=="$product->brand")
                             <div class="item mb-3">

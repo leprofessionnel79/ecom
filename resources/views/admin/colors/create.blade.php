@@ -15,9 +15,9 @@
 
      <div class="card">
          <div class="card-header">
-             <h3>Add Color
+             <h3>{{__('customlang.addColor')}}
                  <a href="{{url('admin/colors')}}" class="btn btn-danger btn-sm text-white float-end">
-                    Back
+                    {{__('customlang.back')}}
                 </a>
              </h3>
          </div>
@@ -25,19 +25,19 @@
           <form action="{{url('admin/colors/create')}}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="">Color Name</label>
+                <label for="">{{__('customlang.colorName')}}</label>
                 <input type="text" name="name" class="form-control">
             </div>
             <div class="mb-3">
-                <label for="">Color Code</label>
+                <label for="">{{__('customlang.colorCode')}}</label>
                 <input type="text" name="code" class="form-control">
             </div>
             <div class="mb-3">
-                <label for="">Status</label> <br/>
-                <input type="checkbox" style="width:30px;height:30px" name="status" /> Checked=Hidden , UnChecked=Visible
+                <label for="">{{__('customlang.status')}}</label> <br/>
+                <input type="checkbox" style="width:30px;height:30px" name="status" /> Checked={{__('customlang.hidden')}} , UnChecked={{__('customlang.visiable')}}
             </div>
             <div class="mb-3">
-               <button type="submit" class="btn btn-primary">Save</button>
+               <button type="submit" class="btn btn-primary">{{__('customlang.save')}}</button>
             </div>
           </form>
         </div>

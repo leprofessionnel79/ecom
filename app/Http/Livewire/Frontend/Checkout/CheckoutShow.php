@@ -175,9 +175,9 @@ class CheckoutShow extends Component
         $this->email = auth()->user()->email;
 
 
-        $this->phone=auth()->user()->userDetail->phone;
-        $this->pincode=auth()->user()->userDetail->pin_code;
-        $this->address=auth()->user()->userDetail->address;
+        $this->phone=auth()->user()->userDetail->phone??'';
+        $this->pincode=auth()->user()->userDetail->pin_code??'';
+        $this->address=auth()->user()->userDetail->address??'';
 
 
         $this->totalProductAmount = $this->totalProductAmount();

@@ -9,8 +9,8 @@
    <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <h3>Edit Category
-                <a href="{{url('admin/category')}}" class="btn btn-primary btn-sm text-white float-end">Back</a>
+            <h3>{{__('customlang.editCategory')}}
+                <a href="{{url('admin/category')}}" class="btn btn-primary btn-sm text-white float-end">{{__('customlang.back')}}</a>
             </h3>
         </div>
         <div class="card-body">
@@ -22,7 +22,7 @@
 
 
                 <div class="col-md-6 mb-3">
-                 <label>Name</label>
+                 <label>{{__('customlang.name')}}</label>
                   <input type="text" name="name" value="{{$category->name}}" class="form-control"/>
                   @error('name')
                    <small class="text-danger">{{$message}}</small>
@@ -36,14 +36,14 @@
                   @enderror
                </div>
                <div class="col-md-6 mb-3">
-                <label>Description</label>
+                <label>{{__('customlang.description')}}</label>
                 <textarea name="description" class="form-control" rows="3">{{$category->description}}</textarea>
                 @error('description')
                    <small class="text-danger">{{$message}}</small>
                   @enderror
                </div>
                <div class="col-md-6 mb-3">
-                <label>Image</label>
+                <label>{{__('customlang.image')}}</label>
                  <input type="file" name="image" class="form-control"/>
                  <img src="{{asset($category->image)}}" width="60px" height="60px" />
 
@@ -53,7 +53,7 @@
                </div>
                </div>
                <div class="col-md-6 mb-3">
-                <label>Status</label><br/>
+                <label>{{__('customlang.status')}}</label><br/>
                  <input type="checkbox"  name="status" {{$category->status == '1'?'checked':''}}/>
                </div>
                <div class="col-md-12">
@@ -81,7 +81,7 @@
                   @enderror
                </div>
                <div class="col-md-12 mb-3">
-                 <button type="submit"  class="btn btn-primary float-end">Update</button>
+                 <button type="submit"  class="btn btn-primary float-end">{{__('customlang.update')}}</button>
                </div>
              </div>
             </form>

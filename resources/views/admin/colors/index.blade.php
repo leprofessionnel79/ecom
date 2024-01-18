@@ -14,9 +14,9 @@
 
      <div class="card">
          <div class="card-header">
-             <h3>Colors List
+             <h3>{{__('customlang.colorList')}}
                  <a href="{{url('admin/colors/create')}}" class="btn btn-primary btn-sm text-white float-end">
-                    Add Color
+                    {{__('customlang.addColor')}}
                 </a>
              </h3>
          </div>
@@ -25,9 +25,9 @@
              <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Color Name</th>
-                    <th>Color Code</th>
-                    <th>Status</th>
+                    <th>{{__('customlang.colorName')}}</th>
+                    <th>{{__('customlang.colorCode')}}</th>
+                    <th>{{__('customlang.status')}}</th>
                     <th>Action</th>
                 </tr>
              </thead>
@@ -39,8 +39,8 @@
                         <td>{{$item->code}}</td>
                         <td>{{$item->status ?'Hidden':'Visible'}}</td>
                         <td>
-                            <a href="{{url('admin/colors/'.$item->id.'/edit')}}" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="{{url('admin/colors/'.$item->id.'/delete')}}" onclick="return confirm('Are you sure you want to delete this date?')" class="btn btn-danger btn-sm">Delet</a>
+                            <a href="{{url('admin/colors/'.$item->id.'/edit')}}" class="btn btn-primary btn-sm text-white">{{__('customlang.edit')}}</a>
+                            <a href="{{url('admin/colors/'.$item->id.'/delete')}}" onclick="return confirm('Are you sure you want to delete this date?')" class="btn btn-danger btn-sm text-white">{{__('customlang.delete')}}</a>
                         </td>
                     </tr>
                 @endforeach

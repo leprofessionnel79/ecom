@@ -4,17 +4,17 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Category Delete</h5>
+              <h5 class="modal-title" id="exampleModalLabel">{{__('customlang.categoryDelete')}}</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
               <form wire:submit.prevent="destroyCategory">
 
                 <div class="modal-body">
-                <h6>Are you sure you want to delete this data?</h6>
+                <h6>{{__('customlang.areYouSureYouWantToDeleteThisData')}}</h6>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Yes. Delete</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__('customlang.close')}}</button>
+                <button type="submit" class="btn btn-primary">{{__('customlang.yesDelete')}}</button>
                 </div>
 
             </form>
@@ -32,8 +32,8 @@
         @endif
         <div class="card">
                 <div class="card-header">
-                    <h3>Category
-                        <a href="{{url('admin/category/create')}}" class="btn btn-primary btn-sm float-end">Add Category</a>
+                    <h3>{{__('customlang.category')}}
+                        <a href="{{url('admin/category/create')}}" class="btn btn-primary btn-sm float-end">{{__('customlang.addCategory')}}</a>
                     </h3>
                 </div>
             <div class="card-body">
@@ -41,8 +41,8 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Status</th>
+                            <th>{{__('customlang.name')}}</th>
+                            <th>{{__('customlang.status')}}</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -54,8 +54,8 @@
                                 <td>{{$category->name}}</td>
                                 <td>{{$category->status=='1'?'Hidden':'Visible'}}</td>
                                 <td>
-                                    <a href="{{url('admin/category/'.$category->id.'/edit')}}" class="btn btn-success">Edit</a>
-                                    <a href="#" wire:click="deleteCategory({{$category->id}})" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-danger">Delete</a>
+                                    <a href="{{url('admin/category/'.$category->id.'/edit')}}" class="btn btn-success text-white">{{__('customlang.edit')}}</a>
+                                    <a href="#" wire:click="deleteCategory({{$category->id}})" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-danger text-white">{{__('customlang.delete')}}</a>
                                 </td>
                             </tr>
                             @endforeach
