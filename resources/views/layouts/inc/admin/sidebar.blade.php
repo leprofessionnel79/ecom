@@ -76,15 +76,22 @@
         </a>
       </li>
       <li class="nav-item {{Request::is('langConverter')?'active':''}}">
-        <a class="nav-link" href="{{url('langConverter/en')}}">
-          <i class="mdi mdi-settings menu-icon"></i>
-          <span class="menu-title">english</span>
+        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic3" aria-expanded="{{Request::is('langConverter')?'true':'false'}}" aria-controls="ui-basic3">
+          <i class="mdi mdi-account-supervisor menu-icon"></i>
+          <span class="menu-title">اللغات / languages</span>
+          <i class="menu-arrow"></i>
         </a>
+        <div class="collapse {{Request::is('langConverter')?'show':''}}" id="ui-basic3">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link " href="{{url('langConverter/en')}}"><span class="menu-title">english</span></a></li>
+            <li class="nav-item"> <a class="nav-link " href="{{url('langConverter/ar')}}"> <span class="menu-title">العربيه</span></a></li>
+          </ul>
+        </div>
       </li>
-      <li class="nav-item {{Request::is('langConverter')?'active':''}}">
-        <a class="nav-link" href="{{url('langConverter/ar')}}">
+      <li class="nav-item">
+        <a class="nav-link" target="_blanck" href="{{url('/')}}">
           <i class="mdi mdi-settings menu-icon"></i>
-          <span class="menu-title">العربيه</span>
+          <span class="menu-title">{{__('customlang.viewStore')}}</span>
         </a>
       </li>
     </ul>

@@ -156,7 +156,7 @@ return [
     'loading...'=>'تحميل ...',
     'deleteBrand'=>'حذف الماركه',
     'areYouSureYouWantDelete'=>'تأكيد حذف البيانات ؟',
-
+    'viewStore'=>'معاينة المتجر',
 
     ];
 

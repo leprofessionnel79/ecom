@@ -157,6 +157,7 @@ return [
     'loading...'=>'Loading...',
     'deleteBrand'=>'Delete Brand',
     'areYouSureYouWantDelete'=>'Are you sure you want delete this data?',
+    'viewStore'=>'View Store',
 
 
 
