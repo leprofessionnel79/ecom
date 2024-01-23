@@ -38,7 +38,7 @@
                 <input type="checkbox" {{$color->status?'Checked':''}} style="width:30px;height:30px" name="status" /> Checked=Hidden , UnChecked=Visible
             </div>
             <div class="mb-3">
-               <button type="submit" class="btn btn-primary">{{__('customlang.update')}}</button>
+               <button type="submit" class="btn btn-primary text-white">{{__('customlang.update')}}</button>
             </div>
           </form>
         </div>

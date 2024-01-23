@@ -29,7 +29,7 @@
                   @enderror
                </div>
                <div class="col-md-6 mb-3">
-                <label>Slug</label>
+                <label>{{__('customlang.slug')}}</label>
                  <input type="text" name="slug" value="{{$category->slug}}" class="form-control"/>
                  @error('slug')
                    <small class="text-danger">{{$message}}</small>
@@ -57,31 +57,31 @@
                  <input type="checkbox"  name="status" {{$category->status == '1'?'checked':''}}/>
                </div>
                <div class="col-md-12">
-                <h4>SEO Tags</h4>
+                <h4>{{__('customlang.seoTags')}}</h4>
                </div>
                <div class="col-md-12 mb-3">
-                <label>Meta Title</label>
+                <label>{{__('customlang.metaTitle')}}</label>
                  <input type="text" name="meta_title" value="{{$category->meta_title}}" class="form-control"/>
                  @error('meta_title')
                    <small class="text-danger">{{$message}}</small>
                   @enderror
                </div>
                <div class="col-md-6 mb-3">
-                <label>Meta Keyword</label>
+                <label>{{__('customlang.metaKeyword')}}</label>
                  <textarea name="meta_keyword"  class="form-control" rows="3">{{$category->meta_keyword}}</textarea>
                  @error('meta_keyword')
                    <small class="text-danger">{{$message}}</small>
                   @enderror
                </div>
                <div class="col-md-6 mb-3">
-                <label>Meta Description</label>
+                <label>{{__('customlang.metaDescription')}}</label>
                  <textarea name="meta_description"  class="form-control" rows="3">{{$category->meta_description}}</textarea>
                  @error('meta_description')
                    <small class="text-danger">{{$message}}</small>
                   @enderror
                </div>
                <div class="col-md-12 mb-3">
-                 <button type="submit"  class="btn btn-primary float-end">{{__('customlang.update')}}</button>
+                 <button type="submit"  class="btn btn-primary float-end text-white">{{__('customlang.update')}}</button>
                </div>
              </div>
             </form>

@@ -37,7 +37,7 @@
                 <input type="checkbox" style="width:30px;height:30px" name="status" /> Checked={{__('customlang.hidden')}} , UnChecked={{__('customlang.visiable')}}
             </div>
             <div class="mb-3">
-               <button type="submit" class="btn btn-primary">{{__('customlang.save')}}</button>
+               <button type="submit" class="btn btn-primary text-white">{{__('customlang.save')}}</button>
             </div>
           </form>
         </div>

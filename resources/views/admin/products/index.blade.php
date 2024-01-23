@@ -14,9 +14,9 @@
 
      <div class="card">
          <div class="card-header">
-             <h3>Products
+             <h3>{{__('customlang.products')}}
                  <a href="{{url('admin/products/create')}}" class="btn btn-primary btn-sm text-white float-end">
-                    Add Products
+                    {{__('customlang.addProducts')}}
                 </a>
              </h3>
          </div>
@@ -25,11 +25,11 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Category</th>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Status</th>
+                        <th>{{__('customlang.category')}}</th>
+                        <th>{{__('customlang.product')}}</th>
+                        <th>{{__('customlang.price')}}</th>
+                        <th>{{__('customlang.quantity')}}</th>
+                        <th>{{__('customlang.status')}}</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -41,7 +41,7 @@
                             @if($product->category)
                                {{$product->category->name}}
                             @else
-                               No Category
+                            {{__('customlang.noCategory')}}
                             @endif
 
                         </td>
@@ -50,13 +50,13 @@
                         <td>{{$product->quantity}}</td>
                         <td>{{$product->status == '1'? 'Hidden':'Visible'}}</td>
                         <td>
-                          <a href="{{url('admin/products/'.$product->id.'/edit')}}" class="btn btn-sm btn-success">Edit</a>
-                          <a href="{{url('admin/products/'.$product->id.'/delete')}}" onclick="return confirm('Are you sure , You want delete this data ?')" class="btn btn-sm btn-danger">Delet</a>
+                          <a href="{{url('admin/products/'.$product->id.'/edit')}}" class="btn btn-sm btn-success text-white">{{__('customlang.edit')}}</a>
+                          <a href="{{url('admin/products/'.$product->id.'/delete')}}" onclick="return confirm('Are you sure , You want delete this data ?')" class="btn btn-sm btn-danger text-white">{{__('customlang.delete')}}</a>
                         </td>
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="7">No Product Available</td>
+                        <td colspan="7">{{__('customlang.noProductsAvailable')}}</td>
                     </tr>
                     @endforelse
                 </tbody>

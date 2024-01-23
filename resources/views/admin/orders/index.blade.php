@@ -9,20 +9,20 @@
     <div class="col-md-12">
      <div class="card">
          <div class="card-header">
-             <h3>My Orders</h3>
+             <h3>{{__('customlang.myOrders')}}</h3>
          </div>
          <div class="card-body">
 
             <form action="" method="GET">
                 <div class="row">
                     <div class="col-md-3">
-                        <label for="">Filter By Date</label>
+                        <label for="">{{__('customlang.filterByDate')}}</label>
                         <input type="date" name="date" value="{{Request::get('date') ?? date('Y-m-d') }}" class="form-control">
                     </div>
                     <div class="col-md-3">
-                        <label for="">Filter By Status</label>
+                        <label for="">{{__('customlang.filterByStatus')}}</label>
                        <select name="status" class="form-select">
-                         <option value="">Select All Status</option>
+                         <option value="">{{__('customlang.selectAllStatus')}}</option>
                          <option value="in progress" {{Request::get('status')=='in progress' ? 'selected':''}}>In Progress</option>
                          <option value="completed" {{  Request::get('status')=='completed' ? 'selected':''}}>Completed</option>
                          <option value="pending" {{Request::get('status')=='pending' ? 'selected':''}}>Pending</option>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="col-md-6">
                         <br>
-                        <button type="submit" class="btn btn-primary">Filter</button>
+                        <button type="submit" class="btn btn-primary text-white">{{__('customlang.filter')}}</button>
                     </div>
                 </div>
             </form>
@@ -42,12 +42,12 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Order Id</th>
+                                    <th>{{__('customlang.orderID')}}</th>
                                     <th>Traking No</th>
-                                    <th>Username</th>
-                                    <th>Payment Mode</th>
-                                    <th>Order Date</th>
-                                    <th>Status Message</th>
+                                    <th>{{__('customlang.userName')}}</th>
+                                    <th>{{__('customlang.paymentMode')}}</th>
+                                    <th>{{__('customlang.orderDate')}}</th>
+                                    <th>{{__('customlang.orderStatusMessage')}}</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -60,11 +60,11 @@
                                  <td>{{$item->payment_mode}}</td>
                                  <td>{{$item->created_at->format('d-m-Y')}}</td>
                                  <td>{{$item->status_message}}</td>
-                                 <td><a href="{{url('admin/orders/'.$item->id)}}" class="btn btn-primary btn-sm">View</a></td>
+                                 <td><a href="{{url('admin/orders/'.$item->id)}}" class="btn btn-primary text-white btn-sm">{{__('customlang.view')}}</a></td>
                                </tr>
                              @empty
                               <tr>
-                                <td colspan="7">No Orders Available</td>
+                                <td colspan="7">{{__('customlang.noOrdersAvailable')}}</td>
                               </tr>
                              @endforelse
                             </tbody>
