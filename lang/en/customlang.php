@@ -192,8 +192,34 @@ return [
     'productName'=>'Product Name',
     'submit'=>'Submit',
     'slug'=>'Slug',
-
-
+    'website'=>'Website',
+    'websiteName'=>'Website Name',
+    'websiteURL'=>'Website URL',
+    'pageTitle'=>'Page title',
+    'information'=>'Information',
+    'phone1'=>'Phone1',
+    'phone2'=>'Phone2',
+    'emailID1'=>'Email ID 1',
+    'emailID2'=>'Email ID 2',
+    'socialMedia'=>'Social Media',
+    'currency'=>'Currency',
+    'selectCurrency'=>'Select Currency',
+    'saveSetting'=>'Save Settings',
+    'sliderList'=>'Slider List',
+    'addSlider'=>'Add Slider',
+    'title'=>'Title',
+    'editSlider'=>'Edit Slider',
+    'addUsers'=>'Add Users',
+    'email'=>'Email',
+    'selectRole'=>'Select Role',
+    'user'=>'User',
+    'admin'=>'Admin',
+    'editUser'=>'Edit User',
+    'users'=>'Users',
+    'role'=>'Role',
+    'none'=>'None',
+    'noUsersAvailable'=>'No Users Available',
+    'password'=>'Password'
 
 
     ];

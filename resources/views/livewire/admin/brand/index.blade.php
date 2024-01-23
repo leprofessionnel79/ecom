@@ -18,7 +18,7 @@
                             <th>ID</th>
                             <th> {{__('customlang.name')}}</th>
                             <th>{{__('customlang.category')}}</th>
-                            <th>Slug</th>
+                            <th>{{__('customlang.slug')}}</th>
                             <th>{{__('customlang.status')}}</th>
                             <th>Action</th>
                         </tr>

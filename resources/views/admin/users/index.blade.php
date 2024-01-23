@@ -14,9 +14,9 @@
 
      <div class="card">
          <div class="card-header">
-             <h3>Users
+             <h3>{{__('customlang.users')}}
                  <a href="{{url('admin/users/create')}}" class="btn btn-primary btn-sm text-white float-end">
-                    Add User
+                    {{__('customlang.addUser')}}
                 </a>
              </h3>
          </div>
@@ -25,9 +25,9 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
+                        <th>{{__('customlang.name')}}</th>
+                        <th>{{__('customlang.email')}}</th>
+                        <th>{{__('customlang.role')}}</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -39,25 +39,25 @@
                         <td>{{$user->email}}</td>
                         <td>
                             @if ($user->role_as =='0')
-                               <label class="badge btn-primary">user</label>
+                               <label class="badge btn-primary">{{__('customlang.user')}}</label>
                             @elseif ($user->role_as =='1')
-                               <label class="badge btn-success">Admin</label>
+                               <label class="badge btn-success">{{__('customlang.admin')}}</label>
                             @else
-                               <label class="badge btn-danger">none</label>
+                               <label class="badge btn-danger">{{__('customlang.none')}}</label>
                             @endif
                         </td>
                         <td>
-                            <a href="{{url('admin/users/'.$user->id.'/edit')}}" class="btn btn-sm btn-success">
-                                Edit
+                            <a href="{{url('admin/users/'.$user->id.'/edit')}}" class="btn btn-sm btn-success text-white">
+                                {{__('customlang.edit')}}
                             </a>
-                            <a href="{{url('admin/users/'.$user->id.'/delete')}}" onclick="return confirm('Are you sure , You want delete this data ?')" class="btn btn-sm btn-danger">
-                                Delet
+                            <a href="{{url('admin/users/'.$user->id.'/delete')}}" onclick="return confirm('Are you sure , You want delete this data ?')" class="btn btn-sm btn-danger text-white">
+                                {{__('customlang.delete')}}
                             </a>
                         </td>
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="5">No Users Available</td>
+                        <td colspan="5">{{__('customlang.noUsersAvailable')}}</td>
                     </tr>
                     @endforelse
                 </tbody>

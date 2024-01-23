@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <h3>{{__('customlang.addCategory')}}
-                <a href="{{url('admin/category/create')}}" class="btn btn-primary btn-sm text-white float-end">{{__('customlang.back')}}</a>
+                <a href="{{url('admin/category/')}}" class="btn btn-primary btn-sm text-white float-end">{{__('customlang.back')}}</a>
             </h3>
         </div>
         <div class="card-body">

@@ -14,9 +14,9 @@
 
      <div class="card">
          <div class="card-header">
-             <h3>Slider List
+             <h3>{{__('customlang.sliderList')}}
                  <a href="{{url('admin/sliders/create')}}" class="btn btn-primary btn-sm text-white float-end">
-                    Add Slider
+                    {{__('customlang.addSlider')}}
                 </a>
              </h3>
          </div>
@@ -25,10 +25,10 @@
              <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Image</th>
-                    <th>Status</th>
+                    <th>{{__('customlang.title')}}</th>
+                    <th>{{__('customlang.description')}}</th>
+                    <th>{{__('customlang.image')}}</th>
+                    <th>{{__('customlang.status')}}</th>
                     <th>Action</th>
                 </tr>
              </thead>
@@ -44,8 +44,8 @@
                     </td>
                     <td>{{$slider->status =='0'? 'Visible':'Hidden'}}</td>
                     <td>
-                        <a href="{{url('admin/sliders/'.$slider->id.'/edit')}}" class="btn btn-success btn-sm">Edit</a>
-                        <a href="{{url('admin/sliders/'.$slider->id.'/delete')}}" onclick="return confirm('Are You Sure You Want Delete This Slider ?')" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="{{url('admin/sliders/'.$slider->id.'/edit')}}" class="btn btn-success btn-sm text-white">{{__('customlang.edit')}}</a>
+                        <a href="{{url('admin/sliders/'.$slider->id.'/delete')}}" onclick="return confirm('Are You Sure You Want Delete This Slider ?')" class="btn btn-danger btn-sm text-white">{{__('customlang.delete')}}</a>
                     </td>
                 </tr>
 

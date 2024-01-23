@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 @if (session('message'))
-                  <p class="alert alert-success">{{session('message')}}</p>
+                  <p class="alert alert-success text-white">{{session('message')}}</p>
                 @endif
 
                 @if ($errors->any())
@@ -22,7 +22,7 @@
                  </ul>
                 @endif
                 <h4>{{__('customlang.userProfile')}}
-                    <a href="{{url('change-password')}}" class="btn btn-warning float-end">{{__('customlang.changePassword')}}</a>
+                    <a href="{{url('change-password')}}" class="btn btn-warning float-end text-white">{{__('customlang.changePassword')}}</a>
                 </h4>
                 <div class="underline mb-4"></div>
             </div>

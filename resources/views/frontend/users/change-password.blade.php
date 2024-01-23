@@ -10,7 +10,7 @@
             <div class="col-md-6">
 
                 @if (session('message'))
-                    <h5 class="alert alert-success mb-2">{{ session('message') }}</h5>
+                    <h5 class="alert alert-success mb-2 text-white">{{ session('message') }}</h5>
                 @endif
 
                 @if ($errors->any())
@@ -24,7 +24,7 @@
                 <div class="card shadow">
                     <div class="card-header bg-primary">
                         <h4 class="mb-0 text-white">{{__('customlang.ChangePassword')}}
-                            <a href="{{url('profile')}}" class="btn btn-danger float-end">{{__('customlang.back')}}</a>
+                            <a href="{{url('profile')}}" class="btn btn-danger float-end text-white">{{__('customlang.back')}}</a>
                         </h4>
                     </div>
                     <div class="card-body">

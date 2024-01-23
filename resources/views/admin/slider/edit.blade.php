@@ -15,9 +15,9 @@
 
      <div class="card">
          <div class="card-header">
-             <h3>Edit Slider
+             <h3>{{__('customlang.editSlider')}}
                  <a href="{{url('admin/sliders/')}}" class="btn btn-danger btn-sm text-white float-end">
-                    Back
+                    {{__('customlang.back')}}
                 </a>
              </h3>
          </div>
@@ -26,26 +26,26 @@
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
-                    <label for="">Title</label>
+                    <label for="">{{__('customlang.title')}}</label>
                     <input type="text" name="title" value="{{$slider->title}}" class="form-control">
                 </div>
                 <div class="mb-3">
-                    <label for="">Description</label>
+                    <label for="">{{__('customlang.description')}}</label>
                     <textarea name="description" class="form-control" rows="3">{{$slider->description}}</textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="">Image</label>
+                    <label for="">{{__('customlang.image')}}</label>
                     <input type="file" name="image" class="form-control" />
                     <img src="{{asset($slider->image)}}" style="width: 50px;height:50px" alt="Slider">
                 </div>
                 <div class="mb-3">
-                    <label for="">Status</label> <br/>
+                    <label for="">{{__('customlang.status')}}</label> <br/>
                     <input type="checkbox" {{$slider->status == 1?'Checked':''}}
                     style="width:30px;height:30px" name="status" />
-                     Checked=Hidden , UnChecked=Visible
+                     Checked={{__('customlang.hidden')}} , UnChecked={{__('customlang.visiable')}}
                 </div>
                 <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary text-white">{{__('customlang.update')}}</button>
                 </div>
             </form>
         </div>

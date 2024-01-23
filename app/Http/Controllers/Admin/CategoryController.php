@@ -11,6 +11,7 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
+
     public function index(){
 
         return view('admin.category.index');
@@ -20,6 +21,9 @@ class CategoryController extends Controller
         return view('admin.category.create');
     }
     public function store(CategoryformRequest $request){
+        $locale = app()->getLocale();
+
+
         $validatedData=$request->validated();
         $category = new Category;
         $category->name = $validatedData['name'];
@@ -46,6 +50,10 @@ class CategoryController extends Controller
         $category->status = $request->status==true?'1':'0';
 
         $category->save();
+
+        if($locale=='ar'){
+            return redirect('admin/category')->with('message','تم إضافة القسم بنجاح');
+        }
         return redirect('admin/category')->with('message','Category Added Succefully');
     }
 
@@ -56,6 +64,7 @@ class CategoryController extends Controller
 
     public function update(CategoryformRequest $request,$category){
 
+        $locale = app()->getLocale();
 
         $validatedData=$request->validated();
 
@@ -91,6 +100,10 @@ class CategoryController extends Controller
         $category->status  = $request->status==true?'1':'0';
 
         $category->update();
+
+        if($locale=='ar'){
+            return redirect('admin/category')->with('message','تم تحديث القسم بنجاح');
+        }
         return redirect('admin/category')->with('message','Category Updated Successfully');
 
     }

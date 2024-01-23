@@ -15,29 +15,29 @@
             <div class="card mb-3">
                 <div class="card-header bg-primary">
                     <h3 class="text-white mb-0">
-                      Website
+                      {{__('customlang.website')}}
                     </h3>
                 </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="">Website Name</label>
+                                <label for="">{{__('customlang.websiteName')}}</label>
                                 <input type="text" name="website_name" value="{{$setting->website_name ?? ''}}" class="form-control">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="">Website URL</label>
+                                <label for="">{{__('customlang.websiteURL')}}</label>
                                 <input type="text" name="website_url" value="{{$setting->website_url?? ''}}" class="form-control">
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label for="">Page title</label>
+                                <label for="">{{__('customlang.pageTitle')}}</label>
                                 <input type="text" name="page_title" value="{{$setting->page_title?? ''}}" class="form-control">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="">Meta Keywords</label>
+                                <label for="">{{__('customlang.metaKeyword')}}</label>
                                 <textarea name="meta_keyword" class="form-control" rows="3">{{$setting->meta_keyword?? ''}}</textarea>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="">Meta Description</label>
+                                <label for="">{{__('customlang.metaDescription')}}</label>
                                 <textarea name="meta_description" class="form-control" rows="3">{{$setting->meta_description?? ''}}</textarea>
                             </div>
                         </div>
@@ -48,28 +48,28 @@
 
             <div class="card-mb-3">
                 <div class="card-header bg-primary">
-                   <h3 class="text-white mb-0">Website - Information</h3>
+                   <h3 class="text-white mb-0">{{__('customlang.website')}} - {{__('customlang.information')}}</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12 mb-3">
-                            <label>Address</label>
+                            <label>{{__('customlang.address')}}</label>
                             <textarea name="address" class="form-control" rows="3">{{$setting->address?? ''}}"</textarea>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Phone1</label>
+                            <label>{{__('customlang.phone1')}}</label>
                             <input type="text" name="phone1" value="{{$setting->phone1?? ''}}" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Phone2</label>
+                            <label>{{__('customlang.phone2')}}</label>
                             <input type="text" name="phone2" value="{{$setting->phone2?? ''}}" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Email ID 1</label>
+                            <label>{{__('customlang.emailID1')}}</label>
                             <input type="text" name="email1" value="{{$setting->email1?? ''}}" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Email ID 2</label>
+                            <label>{{__('customlang.emailID2')}}</label>
                             <input type="text" name="email2" value="{{$setting->email2?? ''}}" class="form-control">
                         </div>
 
@@ -79,7 +79,7 @@
 
             <div class="card-mb-3">
                 <div class="card-header bg-primary">
-                    <h3 class="text-white mb-0">Website - Social Media</h3>
+                    <h3 class="text-white mb-0">{{__('customlang.website')}} - {{__('customlang.socialMedia')}}</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -106,13 +106,13 @@
 
             <div class="card-mb-3">
                 <div class="card-header bg-primary">
-                    <h3 class="text-white mb-0">Website - Currency</h3>
+                    <h3 class="text-white mb-0">{{__('customlang.website')}} - {{__('customlang.currency')}}</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <select name="currency" class="form-select">
-                                <option value="{{$setting->currency}}">Select Currency</option>
+                                <option value="{{$setting->currency}}">{{__('customlang.selectCurrency')}}</option>
                                 <option value="USD" {{$setting->currency=='USD' ? 'selected':''}}>USD</option>
                                 <option value="EUR" {{$setting->currency=='EUR' ? 'selected':''}}>EUR</option>
                                 <option value="SYP" {{$setting->currency=='SYP' ? 'selected':''}}>SYP</option>
@@ -125,7 +125,7 @@
             </div>
 
             <div class="text-end">
-                <button type="submit" class="btn btn-primary text-white">Save Settings</button>
+                <button type="submit" class="btn btn-primary text-white">{{__('customlang.saveSetting')}}</button>
             </div>
         </form>
 

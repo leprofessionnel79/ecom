@@ -35,7 +35,7 @@
             </div>
             <div class="mb-3">
                 <label for="">{{__('customlang.status')}}</label> <br/>
-                <input type="checkbox" {{$color->status?'Checked':''}} style="width:30px;height:30px" name="status" /> Checked=Hidden , UnChecked=Visible
+                <input type="checkbox" {{$color->status?'Checked':''}} style="width:30px;height:30px" name="status" /> Checked={{__('customlang.hidden')}} , UnChecked={{__('customlang.visiable')}}
             </div>
             <div class="mb-3">
                <button type="submit" class="btn btn-primary text-white">{{__('customlang.update')}}</button>
