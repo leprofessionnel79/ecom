@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-md-12 grid-margin">
         @if (session('message'))
-         <div class="alert alert-success mb-3">{{session('message')}}</div>
+         <div class="alert alert-success mb-3 text-center">{{session('message')}}</div>
         @endif
         <form action="{{url('/admin/settings')}}" method="POST">
          @csrf

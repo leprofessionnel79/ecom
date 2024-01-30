@@ -17,10 +17,10 @@
                         <div class="card-header"><h4>{{__('customlang.price')}}</h4></div>
                         <div class="card-body">
                             <label class="d-block">
-                                <input type="radio" name="priceSort" wire:model="priceInput" value="high-to-low" />{{__('customlang.highTolow')}}
+                                <input type="radio" name="priceSort" wire:model="priceInput" value="high-to-low" /> {{__('customlang.highTolow')}}
                             </label>
                             <label class="d-block">
-                                <input type="radio" name="priceSort" wire:model="priceInput" value="low-to-high" />{{__('customlang.lowTohigh')}}
+                                <input type="radio" name="priceSort" wire:model="priceInput" value="low-to-high" /> {{__('customlang.lowTohigh')}}
                             </label>
                         </div>
                     </div>

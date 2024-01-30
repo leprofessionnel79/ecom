@@ -19,6 +19,7 @@ class UserController extends Controller
 
     public function updateUserDetails(Request $request)
     {
+        $locale = app()->getLocale();
 
         $request->validate([
             'username'=>['required','string'],
@@ -43,6 +44,9 @@ class UserController extends Controller
             ]
         );
 
+        if($locale=='ar'){
+            return redirect()->back()->with('message','تم تحديث ملف المستخدم');
+        }
         return redirect()->back()->with('message','User Profile Updated');
     }
 
@@ -53,6 +57,8 @@ class UserController extends Controller
 
     public function changePassword(Request $request)
     {
+        $locale = app()->getLocale();
+
         $request->validate([
             'current_password' => ['required','string','min:8'],
             'password' => ['required', 'string', 'min:8', 'confirmed']
@@ -65,10 +71,16 @@ class UserController extends Controller
                 'password' => Hash::make($request->password),
             ]);
 
+            if($locale=='ar'){
+                return redirect()->back()->with('message','تم تحديث كلمة المرور بنجاح');
+            }
             return redirect()->back()->with('message','Password Updated Successfully');
 
         }else{
 
+            if($locale=='ar'){
+                return redirect()->back()->with('message','كلمة المرور المدخله غير متوافقه مع كلمة المرور المسجله');
+            }
             return redirect()->back()->with('message','Current Password does not match with Old Password');
         }
     }

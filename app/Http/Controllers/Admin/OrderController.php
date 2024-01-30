@@ -39,12 +39,16 @@ class OrderController extends Controller
 
    public function show(int $orderId)
    {
+        $locale = app()->getLocale();
+
         $order = Order::where('id',$orderId)->first();
         if($order)
         {
             return view('admin.orders.view',compact('order'));
         }else{
-
+            if($locale=='ar'){
+            return redirect('admin/orders')->with('message','الطلب غير موجود');
+            }
             return redirect('admin/orders')->with('message','Order Id not found');
         }
 
@@ -52,14 +56,23 @@ class OrderController extends Controller
 
    public function updateOrderStatus(int $orderId,Request $request)
    {
+        $locale = app()->getLocale();
+
         $order = Order::where('id',$orderId)->first();
         if($order)
         {
             $order->update([
                 'status_message'=> $request->order_status
             ]);
+            if($locale=='ar'){
+                return redirect('admin/orders/'.$orderId)->with('message','تم تحديث حالة الطلب');
+            }
             return redirect('admin/orders/'.$orderId)->with('message','Order Status Updated');
         }else{
+
+            if($locale=='ar'){
+                return redirect('admin/orders/'.$orderId)->with('message',' رقم الطلب غير موجود');
+            }
 
             return redirect('admin/orders/'.$orderId)->with('message','Order Id not found');
         }
@@ -84,12 +97,15 @@ class OrderController extends Controller
 
    public function mailInvoice(int $orderId)
    {
-
+        $locale = app()->getLocale();
 
         try{
 
             $order = Order::findOrFail($orderId);
             Mail::to("$order->email")->send(new InvoiceOrderMailable($order));
+            if($locale=='ar'){
+                return redirect('admin/orders/'.$orderId)->with('message','تم إرسال الفاتوره عبر البريد الى '.$order->email);
+            }
             return redirect('admin/orders/'.$orderId)->with('message','Invoice Mail has been sent to '.$order->email);
 
 

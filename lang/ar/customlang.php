@@ -218,7 +218,8 @@ return [
     'role'=>'الرتبه',
     'none'=>'لا شيء',
     'noUsersAvailable'=>'لا يوجد مستخمين متوفرين',
-    'password'=>'الرقم السري'
+    'password'=>'الرقم السري',
+    'ourProducts'=>'منتجاتنا'
 
 
 

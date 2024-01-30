@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 @if (session('message'))
-                <h5 class="alert alert-success">{{ session('message')}}</h5>
+                <h5 class="alert alert-success text-center">{{ session('message')}}</h5>
                 @endif
                 <div class="p-4 shadow bg-white">
                     <h4>{{__('customlang.thankYouForShoppingWithSamadiEcommerce')}}</h4>

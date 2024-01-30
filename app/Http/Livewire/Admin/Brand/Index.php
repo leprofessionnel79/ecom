@@ -47,6 +47,8 @@ class Index extends Component
 
     public function storeBrand()
     {
+        $locale = app()->getLocale();
+
         $validatedData = $this->validate();
         Brand::create([
             'name'=>$this->name,
@@ -54,6 +56,12 @@ class Index extends Component
             'status'=>$this->status == true ? '1':'0',
             'category_id'=>$this->category_id,
         ]);
+
+        if($locale=='ar'){
+            session()->flash('message','تم إضافة البراند لنجاح');
+            $this->dispatchBrowserEvent('close_modal');
+            $this->resetInput();
+        }
         session()->flash('message','Brand Added Successfully');
         $this->dispatchBrowserEvent('close_modal');
         $this->resetInput();
@@ -71,6 +79,8 @@ class Index extends Component
 
     public function updateBrand()
     {
+        $locale = app()->getLocale();
+
         $validatedData = $this->validate();
         Brand::findOrFail($this->brand_id)->update([
             'name'=>$this->name,
@@ -78,6 +88,12 @@ class Index extends Component
             'status'=>$this->status == true ? '1':'0',
             'category_id'=>$this->category_id
         ]);
+
+        if($locale=='ar'){
+            session()->flash('message','تم تحدديث البراند بنجاح');
+            $this->dispatchBrowserEvent('close_modal');
+            $this->resetInput();
+        }
         session()->flash('message','Brand Updated Successfully');
         $this->dispatchBrowserEvent('close_modal');
         $this->resetInput();
@@ -90,8 +106,15 @@ class Index extends Component
 
     public function destroyBrand()
     {
+        $locale = app()->getLocale();
+
        Brand::findOrFail($this->brand_id)->delete();
 
+       if($locale=='ar'){
+        session()->flash('message','تم حذف البراند بنجاح');
+        $this->dispatchBrowserEvent('close_modal');
+        $this->resetInput();
+       }
        session()->flash('message','Brand Deleted Successfully');
         $this->dispatchBrowserEvent('close_modal');
         $this->resetInput();

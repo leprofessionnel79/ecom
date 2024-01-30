@@ -9,7 +9,7 @@
     <div class="col-md-12">
 
         @if (session('message'))
-           <div class="alert alert-success">{{session('message')}}</div>
+           <div class="alert alert-success text-center">{{session('message')}}</div>
         @endif
 
      <div class="card">
@@ -38,7 +38,7 @@
                 <tr>
                     <td>{{$slider->id}}</td>
                     <td>{{$slider->title}}</td>
-                    <td>{{$slider->description}}</td>
+                    <td style="">{{$slider->description}}</td>
                     <td>
                         <img src="{{asset("$slider->image")}}" style="width:70px;height:70px" alt="Slider" >
                     </td>

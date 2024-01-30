@@ -126,7 +126,7 @@ class View extends Component
                             else
                             {
                                 $this->dispatchBrowserEvent('message', [
-                                    'text' => 'Only '.$productColor->quantity.' Quantity Avilable',
+                                    'text' =>$locale=='en'? 'Only '.$productColor->quantity.' Quantity Avilable':($locale=='ar'?'فقط '.$productColor->quantity.' متوفره':''),
                                     'type' => 'warning',
                                     'status' => 404
                                 ]);
@@ -189,7 +189,7 @@ class View extends Component
                         else
                         {
                             $this->dispatchBrowserEvent('message', [
-                                'text' => 'Only '.$this->product->quantity.' Quantity Avilable',
+                                'text' => $locale=='en'? 'Only '.$this->product->quantity.' Quantity Avilable':($locale=='ar'?'فقط '.$this->product->quantity.' متوفره':''),
                                 'type' => 'warning',
                                 'status' => 404
                             ]);

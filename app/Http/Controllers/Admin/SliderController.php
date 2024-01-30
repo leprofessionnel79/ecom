@@ -23,6 +23,8 @@ class SliderController extends Controller
 
     public function store(SliderFormRequest $request)
     {
+        $locale = app()->getLocale();
+
         $validatedData = $request->validated();
 
         if($request->hasFile('image')){
@@ -42,6 +44,9 @@ class SliderController extends Controller
           'status'=>$validatedData['status'],
         ]);
 
+        if($locale=='ar'){
+            return redirect('admin/sliders')->with('message','تم إضافة السلايد بنجاح');
+        }
         return redirect('admin/sliders')->with('message','Slider Added Successfully');
     }
 
@@ -52,6 +57,8 @@ class SliderController extends Controller
 
     public function update(SliderFormRequest $request,Slider $slider )
     {
+        $locale = app()->getLocale();
+
         $validatedData = $request->validated();
 
         if($request->hasFile('image')){
@@ -76,11 +83,15 @@ class SliderController extends Controller
           'status'=>$validatedData['status'],
         ]);
 
+        if($locale=='ar'){
+            return redirect('admin/sliders')->with('message','تم تحديث السلايد بنجاح');
+        }
         return redirect('admin/sliders')->with('message','Slider Updated Successfully');
     }
 
     public function destroy(Slider $slider)
     {
+        $locale = app()->getLocale();
         if($slider->count()>0){
             $dstination = $slider->image;
             if(File::exists($dstination)){
@@ -88,6 +99,10 @@ class SliderController extends Controller
             }
 
             $slider->delete();
+
+            if($locale=='ar'){
+             return redirect('admin/sliders')->with('message','تم حذف السلايد بنجاح');
+            }
             return redirect('admin/sliders')->with('message','Slider Deleted Successfully');
 
         }

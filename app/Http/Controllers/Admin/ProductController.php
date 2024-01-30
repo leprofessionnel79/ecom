@@ -32,6 +32,8 @@ class ProductController extends Controller
 
     public function store(ProductFormRequest $request)
     {
+       $locale = app()->getLocale();
+
        $validatedData = $request->validated();
 
        $category = Category::findOrFail($validatedData['category_id']);
@@ -79,6 +81,9 @@ class ProductController extends Controller
             ]);
          }
        }
+       if($locale=='ar'){
+        return redirect('admin/products')->with('message','تم إضافة المنتج بنجاح');
+       }
        return redirect('admin/products')->with('message','Product Added Successfully');
     }
 
@@ -95,6 +100,8 @@ class ProductController extends Controller
 
     public function update(ProductFormRequest $request ,$product_id)
     {
+        $locale = app()->getLocale();
+
         $validatedData = $request->validated();
         $product = Category::findOrFail($validatedData['category_id'])
                        ->products()->where('id',$product_id)->first();
@@ -146,10 +153,16 @@ class ProductController extends Controller
                    ]);
                 }
               }
+              if($locale=='ar'){
+                return redirect('admin/products')->with('message','تم تحديث المنتج بنجاح');
+              }
                return redirect('admin/products')->with('message','Product Updated Successfully');
         }
         else
         {
+            if($locale=='ar'){
+                return redirect('admin/products')->with('message','لا يوجد رقم معرف مطابق لهذا المنتج');
+            }
            return redirect('admin/products')->with('message','No Sush Product ID Found');
         }
 
@@ -157,6 +170,8 @@ class ProductController extends Controller
 
     public function destroyImage(int $product_image_id)
     {
+        $locale = app()->getLocale();
+
         $productImage = ProductImage::findOrFail($product_image_id);
         if(File::exists($productImage->image))
         {
@@ -164,12 +179,17 @@ class ProductController extends Controller
         }
         $productImage->delete();
 
+        if($locale=='ar'){
+            return redirect()->back()->with('message','تم حذف صورة المنتج');
+        }
         return redirect()->back()->with('message','Product Image Deleted');
 
     }
 
     public function destroy(int $product_id)
     {
+        $locale = app()->getLocale();
+
         $product = Product::findOrFail($product_id);
         if($product->productImages){
             foreach($product->productImages as $image)
@@ -183,11 +203,16 @@ class ProductController extends Controller
         }
         $product->delete();
 
+        if($locale=='ar'){
+            return redirect()->back()->with('message','تم حذف المنتج مع كافة الصور المرفقه');
+        }
         return redirect()->back()->with('message','Product Deleted With All Its Images');
     }
 
     public function updateProdColorQty(Request $request , $prod_color_id)
     {
+        $locale = app()->getLocale();
+
         $productColorData = Product::findOrFail($request->product_id)
                      ->productColors()->where('id', $prod_color_id)->first();
 
@@ -195,14 +220,23 @@ class ProductController extends Controller
           'quantity'=>$request->qty
         ]);
 
+        if($locale=='ar'){
+            return response()->json(['message'=>'تم تحديث الكميه']);
+        }
+
         return response()->json(['message'=>'Product Color Qty Updated']);
     }
 
     public function deleteProdColor($prod_color_id)
     {
+        $locale = app()->getLocale();
+
         $prodColor = ProductColor::findOrFail($prod_color_id);
         $prodColor->delete();
 
+        if($locale=='ar'){
+            return response()->json(['message'=>'تم الحذف بنجاح']);
+        }
         return response()->json(['message'=>'Product Color Deleted']);
     }
 }

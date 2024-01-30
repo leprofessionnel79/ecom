@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 @if (session('message'))
-                  <p class="alert alert-success text-white">{{session('message')}}</p>
+                  <p class="alert alert-success text-center">{{session('message')}}</p>
                 @endif
 
                 @if ($errors->any())

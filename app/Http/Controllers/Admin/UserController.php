@@ -22,6 +22,8 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $locale = app()->getLocale();
+
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -36,6 +38,9 @@ class UserController extends Controller
             'role_as' => $request->role_as
         ]);
 
+        if($locale=='ar'){
+            return redirect('/admin/users')->with('message','تم إنشاء المستخدم بنجاح');
+        }
         return redirect('/admin/users')->with('message','User Created Successfully');
     }
 
@@ -48,6 +53,8 @@ class UserController extends Controller
 
     public function update(Request $request,int $userId)
     {
+        $locale = app()->getLocale();
+
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8'],
@@ -60,14 +67,22 @@ class UserController extends Controller
             'role_as' => $request->role_as
         ]);
 
+        if($locale=='ar'){
+            return redirect('/admin/users')->with('message','تم تحديث المستخدم بنجاح');
+        }
         return redirect('/admin/users')->with('message','User Updated Successfully');
     }
 
     public function destroy(int $userId)
     {
+        $locale = app()->getLocale();
+
         $user = User::findOrFail($userId);
         $user->delete();
 
+        if($locale=='ar'){
+            return redirect('/admin/users')->with('message','تم حذف المستخدم بنجاح');
+        }
         return redirect('/admin/users')->with('message','User Deleted Successfully');
     }
 }

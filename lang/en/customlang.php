@@ -219,7 +219,8 @@ return [
     'role'=>'Role',
     'none'=>'None',
     'noUsersAvailable'=>'No Users Available',
-    'password'=>'Password'
+    'password'=>'Password',
+    'ourProducts'=>'Our Products'
 
 
     ];

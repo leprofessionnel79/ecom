@@ -19,7 +19,7 @@ class CheckoutShow extends Component
 
     public $fullname , $email ,$pincode, $phone , $address , $payment_mode=NULL , $payment_id=NULL;
 
-    public $locale;
+
 
     protected $listeners =[
         'validationForALL',
@@ -28,6 +28,8 @@ class CheckoutShow extends Component
 
     public function paidOnlineOrder($value)
     {
+        $locale=app()->getLocale();
+
         $this->payment_id = $value;
         $this->payment_mode= "Paid by PayPal";
         $this->locale=App::getLocale();
@@ -46,7 +48,7 @@ class CheckoutShow extends Component
 
             session()->flash('message','Order Placed Successfully');
             $this->dispatchBrowserEvent('message', [
-                'text' =>$this->locale=='en'? 'Order Placed Successfully':($this->locale=='ar'?'تم تسجيل الطلب بنجاح':''),
+                'text' =>$locale=='en'? 'Order Placed Successfully':($locale=='ar'?'تم تسجيل الطلب بنجاح':''),
                 'type' => 'success',
                 'status' => 200
             ]);
@@ -54,7 +56,7 @@ class CheckoutShow extends Component
         }else
         {
             $this->dispatchBrowserEvent('message', [
-                'text' =>$this->locale=='en'?'Somthing went wrong!!':($this->locale=='ar'?'حدث خطأ !!':''),
+                'text' =>$locale=='en'?'Somthing went wrong!!':($locale=='ar'?'حدث خطأ !!':''),
                 'type' => 'error',
                 'status' => 500
             ]);
@@ -123,6 +125,8 @@ class CheckoutShow extends Component
 
     public function codOrder()
     {
+        $locale=app()->getLocale();
+
         $this->locale=App::getLocale();
         $this->payment_mode = 'Cash On Delivery';
         $codOrder = $this->placeOrder();
@@ -140,7 +144,7 @@ class CheckoutShow extends Component
 
             session()->flash('message','Order Placed Successfully');
             $this->dispatchBrowserEvent('message', [
-                'text' => $this->locale=='en'? 'Order Placed Successfully':($this->locale=='ar'?'تم تسجيل الطلب بنجاح':''),
+                'text' => $locale=='en'? 'Order Placed Successfully':($locale=='ar'?'تم تسجيل الطلب بنجاح':''),
                 'type' => 'success',
                 'status' => 200
             ]);
@@ -148,7 +152,7 @@ class CheckoutShow extends Component
         }else
         {
             $this->dispatchBrowserEvent('message', [
-                'text' => $this->locale=='en'?'Somthing went wrong!!':($this->locale=='ar'?'حدث خطأ !!':''),
+                'text' => $locale=='en'?'Somthing went wrong!!':($locale=='ar'?'حدث خطأ !!':''),
                 'type' => 'error',
                 'status' => 500
             ]);

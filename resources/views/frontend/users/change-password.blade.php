@@ -10,7 +10,7 @@
             <div class="col-md-6">
 
                 @if (session('message'))
-                    <h5 class="alert alert-success mb-2 text-white">{{ session('message') }}</h5>
+                    <h5 class="alert alert-success mb-2 text-center">{{ session('message') }}</h5>
                 @endif
 
                 @if ($errors->any())

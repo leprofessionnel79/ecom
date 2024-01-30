@@ -42,7 +42,7 @@ class CartShow extends Component
                     }else
                     {
                         $this->dispatchBrowserEvent('message', [
-                            'text' => 'Only '.$productColor->quantity.' Quantity Available',
+                            'text' =>$locale=='en'? 'Only '.$productColor->quantity.' Quantity Available':($locale=='ar'?'فقط '.$productColor->quantity.' متوفره':''),
                             'type' => 'success',
                             'status' => 200
                             ]);
@@ -69,7 +69,7 @@ class CartShow extends Component
                         ]);
                     }else{
                         $this->dispatchBrowserEvent('message', [
-                            'text' => 'Only '.$cartData->product->quantity.' Quantity Available',
+                            'text' =>$locale=='en'? 'Only '.$cartData->product->quantity.' Quantity Available':($locale=='ar'?'فقط '.$cartData->product->quantity.' متوفره':''),
                             'type' => 'success',
                             'status' => 200
                             ]);

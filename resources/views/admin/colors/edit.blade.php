@@ -10,7 +10,7 @@
     <div class="col-md-12">
 
         @if (session('message'))
-           <div class="alert alert-success">{{session('message')}}</div>
+           <div class="alert alert-success text-center">{{session('message')}}</div>
         @endif
 
      <div class="card">
