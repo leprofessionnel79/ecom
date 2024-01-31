@@ -219,10 +219,18 @@ return [
     'none'=>'لا شيء',
     'noUsersAvailable'=>'لا يوجد مستخمين متوفرين',
     'password'=>'الرقم السري',
-    'ourProducts'=>'منتجاتنا'
-
-
-
+    'ourProducts'=>'منتجاتنا',
+    'dashboard'=>'لوحة التحكم',
+    'totalOrders'=>'مجموع الطلبات',
+    'todayOrders'=>'طلبات اليوم',
+    'thisMonthOrders'=>'طلبات الشهر الحالي',
+    'yearOrders'=>'طلبات السنه الحاليه',
+    'totalProducts'=>'مجموع المنتجات',
+    'totalCategories'=>'مجموع الأقسام',
+    'totalBrands'=>'مجموع الماركات',
+    'allUsers'=>'كل المستخدمين',
+    'totalUsers'=>'مجموع المستخدمين',
+    'totalAdmins'=>'مجموع الإداريين',
 
 
     ];

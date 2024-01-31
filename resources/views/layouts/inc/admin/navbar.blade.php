@@ -4,7 +4,7 @@
         <a class="navbar-brand brand-logo" href="index.html">
             {{-- <img src="images/logo.svg" alt="logo"/> --}}
 
-            Samadi ECOM
+        {{$appSetting->website_name}}
         </a>
         <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -125,14 +125,14 @@
             <span class="nav-profile-name">{{ Auth::user()->name }}</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown  " aria-labelledby="profileDropdown">
-            <a class="dropdown-item">
+            <a class="dropdown-item" href="{{url('admin/settings')}}">
               <i class="mdi mdi-settings text-primary"></i>
-              Settings
+              {{__('customlang.siteSetting')}}
             </a>
             <a class="dropdown-item" href="{{ route('logout') }}"
                  onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
-                   <i class="mdi mdi-logout text-primary"></i> {{ __('Logout') }}</a>
+                   <i class="mdi mdi-logout text-primary"></i> {{__('customlang.logout')}}</a>
                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                            @csrf
                     </form>

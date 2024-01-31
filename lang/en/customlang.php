@@ -220,7 +220,18 @@ return [
     'none'=>'None',
     'noUsersAvailable'=>'No Users Available',
     'password'=>'Password',
-    'ourProducts'=>'Our Products'
+    'ourProducts'=>'Our Products',
+    'dashboard'=>'Dashboard',
+    'totalOrders'=>'Total Orders',
+    'todayOrders'=>'Today Orders',
+    'thisMonthOrders'=>'This Month Orders',
+    'yearOrders'=>'Year Orders',
+    'totalProducts'=>'Total Products',
+    'totalCategories'=>'Total Categories',
+    'totalBrands'=>'Total Brands',
+    'allUsers'=>'All Users',
+    'totalUsers'=>'Total Users',
+    'totalAdmins'=>'Total Admins',
 
 
     ];
