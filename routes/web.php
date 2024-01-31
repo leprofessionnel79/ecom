@@ -31,6 +31,7 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
     Route::get('/featured-products','featuredProducts');
     Route::get('search','searchProducts');
 
+
     Route::get('langConverter/{locale}',function($locale){
        if(!in_array($locale,['ar','en'])){
             abort(404);
@@ -64,6 +65,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
 
+    Route::get('search-product',[App\Http\Controllers\Admin\SearchController::class,'searchProduct']);
     Route::get('dashboard',[App\Http\Controllers\Admin\DashboardController::class,'index']);
 
     Route::get('settings',[App\Http\Controllers\Admin\SettingController::class,'index']);

@@ -10,7 +10,7 @@ return [
     'allCategories'=>'All Categories',
     'newArrivals'=>'New Arrivals',
     'featuredProducts'=>'Featured Products',
-    'searchYourProduct'=>'Searc Your Product',
+    'searchYourProduct'=>'Search Your Product',
     'quickLinks'=>'Quick Links',
     'aboutUs'=>'About Us',
     'contactUs'=>'Contact Us',
