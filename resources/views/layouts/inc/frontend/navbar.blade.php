@@ -15,9 +15,9 @@
                         </div>
                     </form>
                 </div>
+
                 <div class="col-md-5 my-auto">
                     <ul class="nav justify-content-end">
-
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('cart')}}">
                                 <i class="fa fa-shopping-cart"></i> {{__('customlang.cart')}} (<livewire:frontend.cart.cart-count/>)
@@ -106,6 +106,7 @@
                     <li class="nav-item">
                         <a class="nav-link" style="font-family: cairo;" href="{{url('langConverter/ar')}}">العربيه</a>
                     </li>
+
                 </ul>
             </div>
         </div>

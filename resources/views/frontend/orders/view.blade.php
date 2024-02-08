@@ -15,7 +15,7 @@
                         <a href="{{url('orders')}}" class="btn btn-danger btn-sm float-end">{{__('customlang.back')}}</a>
                     </h4>
                     <hr>
-                    <div class="row">
+                    <div class="row" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
                         <div class="col-md-6">
                             <h5>{{__('customlang.orderDetails')}}</h5>
                             <hr>
@@ -38,10 +38,10 @@
                         </div>
                     </div>
                     <br/>
-                    <h5>{{__('customlang.orderItems')}}</h5>
+                    <h5 dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">{{__('customlang.orderItems')}}</h5>
                     <hr>
 
-                    <div class="table-responsive">
+                    <div class="table-responsive" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -61,13 +61,13 @@
                               <tr>
                                 <td width="10%">{{$orderItem->id}}</td>
                                 <td width="10%">
-                                    @if ($orderItem->product->productImages)
+                                    @if ($orderItem->product->productImages??'none')
                                         <img src="{{asset($orderItem->product->productImages[0]->image)}}"
                                             style="width: 50px; height: 50px" alt="">
-                                        @else
+                                    @else
                                         <img src=""
                                             style="width: 50px; height: 50px" alt="">
-                                        @endif
+                                    @endif
                                 </td>
                                 <td>
                                     {{$orderItem->product->name}}

@@ -12,12 +12,12 @@
                             <span class="float-end">{{$appSetting->currency}} {{$this->totalProductAmount}}</span>
                         </h4>
                         <hr>
-                        <small>*  {{__('customlang.itemswillbedeliveredin')}} 3 - 5 days.</small>
+                        <small dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">*  {{__('customlang.itemswillbedeliveredin')}} 3 - 5 {{__('customlang.days')}}.</small>
                         <br/>
                         <small>* {{__('customlang.Taxandotherchargesareincluded')}}</small>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
                     <div class="shadow bg-white p-3">
                         <h4 class="text-primary">
                             {{__('customlang.basicInformation')}}
@@ -51,7 +51,7 @@
                                     @error('address') <small class="text-danger">{{$message}}</small> @enderror
                                 </div>
                                 <div class="col-md-12 mb-3" wire:ignore>
-                                    <label>{{__('customlang.SelectPaymentMode')}}: </label>
+                                    <label class="mb-1">{{__('customlang.SelectPaymentMode')}}:</label>
                                     <div class="d-md-flex align-items-start">
                                         <div class="nav col-md-3 flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                             <button wire:loading.attr="disabled" class="nav-link active fw-bold" id="cashOnDeliveryTab-tab" data-bs-toggle="pill" data-bs-target="#cashOnDeliveryTab" type="button" role="tab" aria-controls="cashOnDeliveryTab" aria-selected="true">Cash on Delivery</button>

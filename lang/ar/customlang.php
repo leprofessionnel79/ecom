@@ -231,6 +231,8 @@ return [
     'allUsers'=>'كل المستخدمين',
     'totalUsers'=>'مجموع المستخدمين',
     'totalAdmins'=>'مجموع الإداريين',
+    'productSearchResult'=>'نتائج بحث المنتج',
+    'days'=>'أيام',
 
 
     ];

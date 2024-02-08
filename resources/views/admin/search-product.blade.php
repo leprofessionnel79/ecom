@@ -14,7 +14,7 @@
 
      <div class="card">
          <div class="card-header">
-             <h3>{{__('customlang.products')}}
+             <h3>{{__('customlang.productSearchResult')}}
              </h3>
          </div>
          <div class="card-body">

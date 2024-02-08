@@ -27,7 +27,7 @@
                 <div class="underline mb-4"></div>
             </div>
             <div class="col-md-10">
-                <div class="card-shadow">
+                <div class="card-shadow" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
                     <div class="card-header bg-primary">
                         <h4 class="mb-0 text-white">{{__('customlang.userDetails')}}</h4>
                     </div>

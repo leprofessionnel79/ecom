@@ -64,6 +64,37 @@
     <div class="container">
         <div class="row ">
             <div class="col-md-12">
+                <h4>{{__('customlang.allCategories')}}</h4>
+                <div class="underline mb-4"></div>
+            </div>
+            @if ($categories??'none')
+            <div class="col-md-12">
+                <div class="owl-carousel owl-theme four-carousel">
+                    @foreach  ($categories as $categoryItem)
+                        <div class="item">
+                                <div class="category-card">
+                                    <a href="{{url('/collections/'.$categoryItem->slug)}}">
+                                        <div class="category-card-img">
+                                            <img src="{{asset("$categoryItem->image")}}" class="w-100" alt="Laptop">
+                                        </div>
+                                        <div class="category-card-body">
+                                            <h5>{{$categoryItem->name}}</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            @endif
+        </div>
+    </div>
+  </div>
+
+  <div class="py-5">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-12">
                 <h4>{{__('customlang.trendingProducts')}}</h4>
                 <div class="underline mb-4"></div>
             </div>

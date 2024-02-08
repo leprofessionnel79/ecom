@@ -23,8 +23,7 @@ return [
     'electronics'=>'Electronics',
     'accessories'=>'Accessories',
     'fashions'=>'Fashions',
-    'website_description'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry',
+    'website_description'=>'welcome in our store where you can shopping during many sections and find the best deals offers ',
     'allRightsReserved'=>'All Rights Reserved',
     'previous'=>'Previous',
     'next'=>'Next',
@@ -232,6 +231,8 @@ return [
     'allUsers'=>'All Users',
     'totalUsers'=>'Total Users',
     'totalAdmins'=>'Total Admins',
+    'productSearchResult'=>'Product search results',
+    'days'=>'days',
 
 
     ];
