@@ -233,6 +233,7 @@ return [
     'totalAdmins'=>'مجموع الإداريين',
     'productSearchResult'=>'نتائج بحث المنتج',
     'days'=>'أيام',
+    'noItemInCartToCheckOut'=>' !لا توجد منتجات في السله',
 
 
     ];

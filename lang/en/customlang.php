@@ -233,7 +233,8 @@ return [
     'totalAdmins'=>'Total Admins',
     'productSearchResult'=>'Product search results',
     'days'=>'days',
-    
+    'noItemInCartToCheckOut'=>'No Items In Cart To Checkout!',
+
 
 
     ];

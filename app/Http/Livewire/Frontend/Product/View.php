@@ -43,7 +43,7 @@ class View extends Component
             session()->flash('message','please login to continue');
             $this->dispatchBrowserEvent('message', [
                 'text' =>$locale=='en'? 'please login to add to cart':($locale=='ar'?'يرجى تسجيل الدخول أولا':''),
-                'type' => 'info',
+                'type' => 'warning',
                 'status' => 401
             ]);
             return false;
