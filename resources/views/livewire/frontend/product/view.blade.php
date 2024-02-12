@@ -68,7 +68,6 @@
                                @else
                                <label class="btn-sm py-1 mt-2 text-white bg-danger">{{__('customlang.outOfStock')}}</label>
                                @endif
-
                             @endif
                         </div>
                         <div class="mt-2">

@@ -233,6 +233,7 @@ return [
     'totalAdmins'=>'Total Admins',
     'productSearchResult'=>'Product search results',
     'days'=>'days',
+    
 
 
     ];

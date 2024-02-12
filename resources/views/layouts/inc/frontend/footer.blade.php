@@ -14,7 +14,7 @@
                         <h4 class="footer-heading">{{__('customlang.quickLinks')}}</h4>
                         <div class="footer-underline"></div>
                         <div class="mb-2"><a href="{{url('/')}}" class="text-white">{{__('customlang.homePage')}}</a></div>
-                        <div class="mb-2"><a href="{{url('/about-us')}}" class="text-white">{{__('customlang.aboutUs')}}</a></div>
+                        <div class="mb-2"><a href="{{url('#')}}" class="text-white">{{__('customlang.aboutUs')}}</a></div>
                         {{-- <div class="mb-2"><a href="{{url('/contact-us')}}" class="text-white">{{__('customlang.contactUs')}}</a></div>
                         <div class="mb-2"><a href="{{url('/blogs')}}" class="text-white">Blogs</a></div> --}}
                         <div class="mb-2"><a href="" class="text-white">Sitemaps</a></div>
