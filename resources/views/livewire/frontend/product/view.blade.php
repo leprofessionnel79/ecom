@@ -181,7 +181,7 @@
                             @foreach ($category->relatedProducts as $relatedProductItem )
                             @if ($relatedProductItem->brand=="$product->brand")
                             <div class="item mb-3">
-                                <div class="product-card" style="border-radius: 0.9em;overflow: hidden">
+                                <div class="product-card">
                                     <div class="product-card-img">
                                         @if ($relatedProductItem->productImages->count()>0)
                                         <a href="{{url('/collections/'.$relatedProductItem->category->slug.'/'.$relatedProductItem->slug)}}">

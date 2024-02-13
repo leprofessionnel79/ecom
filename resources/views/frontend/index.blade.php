@@ -72,7 +72,7 @@
                 <div class="owl-carousel owl-theme four-carousel">
                     @foreach  ($categories as $categoryItem)
                         <div class="item">
-                                <div class="category-card" style="border-radius: 0.9em;overflow: hidden">
+                                <div class="category-card">
                                     <a href="{{url('/collections/'.$categoryItem->slug)}}">
                                         <div class="category-card-img">
                                             <img src="{{asset("$categoryItem->image")}}" class="w-100" alt="Laptop">
@@ -103,7 +103,7 @@
                 <div class="owl-carousel owl-theme four-carousel">
                     @foreach ($trendingProducts as $productItem )
                     <div class="item">
-                        <div class="product-card" style="border-radius: 0.9em;overflow: hidden">
+                        <div class="product-card">
                             <div class="product-card-img">
                                 <label class="stock bg-danger">{{__('customlang.new')}}</label>
                                 @if ($productItem->productImages->count()>0)
@@ -155,7 +155,7 @@
                 <div class="owl-carousel owl-theme four-carousel">
                     @foreach ($newArrivalsProducts as $productItem )
                     <div class="item">
-                        <div class="product-card" style="border-radius: 0.9em;overflow: hidden">
+                        <div class="product-card">
                             <div class="product-card-img">
                                 <label class="stock bg-danger">{{__('customlang.new')}}</label>
                                 @if ($productItem->productImages->count()>0)
@@ -207,7 +207,7 @@
                 <div class="owl-carousel owl-theme four-carousel">
                     @foreach ($featuredProducts as $productItem )
                     <div class="item">
-                        <div class="product-card" style="border-radius: 0.9em;overflow: hidden">
+                        <div class="product-card">
                             <div class="product-card-img">
                                 <label class="stock bg-danger">{{__('customlang.new')}}</label>
                                 @if ($productItem->productImages->count()>0)
