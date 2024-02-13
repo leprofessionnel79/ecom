@@ -29,7 +29,7 @@
                 <div class="row">
                     @forelse ($products as $productItem )
                     <div class="col-md-4">
-                        <div class="product-card">
+                        <div class="product-card" style="border-radius: 0.9em;overflow: hidden">
                             <div class="product-card-img">
                                 @if ($productItem->quantity > 0)
                                 <label class="stock bg-success">{{__('customlang.inStock')}}</label>

@@ -13,7 +13,7 @@
             </div>
                 @forelse ($featuredProducts as $productItem )
                 <div class="col-md-3">
-                    <div class="product-card">
+                    <div class="product-card" style="border-radius: 0.9em;overflow: hidden">
                         <div class="product-card-img">
                             <label class="stock bg-danger">{{__('customlang.new')}}</label>
                             @if ($productItem->productImages->count()>0)
