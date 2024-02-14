@@ -112,7 +112,7 @@
             </div>
         </div>
     </div>
-
+    {{-- py-3 py-md-5 --}}
     <div class="py-3 py-md-5">
         <div class="container">
             <div class="row">
@@ -124,7 +124,7 @@
                         {{__('customlang.products')}}</h3>
                     <div class="underline"></div>
                 </div>
-                <div  class="col-md-12">
+                <div class="col-md-12">
                     @if ($category)
                     <div wire:ignore class="owl-carousel owl-theme four-carousel">
                         @foreach ($category->relatedProducts as $relatedProductItem )
@@ -164,6 +164,7 @@
         </div>
     </div>
 
+    {{-- py-3 py-md-5 bg-white --}}
     <div class="py-3 py-md-5 bg-white">
         <div class="container">
             <div class="row">
@@ -181,7 +182,7 @@
                             @foreach ($category->relatedProducts as $relatedProductItem )
                             @if ($relatedProductItem->brand=="$product->brand")
                             <div class="item mb-3">
-                                <div class="product-card">
+                                <div class="product-card" style="border-radius:0.9em;overflow:hidden;">
                                     <div class="product-card-img">
                                         @if ($relatedProductItem->productImages->count()>0)
                                         <a href="{{url('/collections/'.$relatedProductItem->category->slug.'/'.$relatedProductItem->slug)}}">
@@ -236,11 +237,16 @@
         });
         });
 
+    $(window).on('load',function(){
         $('.four-carousel').owlCarousel({
         loop:true,
         margin:10,
         dots:true,
         nav:false,
+        autoplay:true,
+        autoplayHoverPause:true,
+        autoPlayTimeout:1000,
+        smartSpeed:1000,
         responsive:{
             0:{
                 items:1
@@ -253,6 +259,7 @@
             }
         }
     });
+});
 </script>
 
 @endpush

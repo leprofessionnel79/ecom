@@ -72,7 +72,7 @@
                 <div class="owl-carousel owl-theme four-carousel">
                     @foreach  ($categories as $categoryItem)
                         <div class="item">
-                                <div class="category-card">
+                                <div class="category-card" style="border-radius:0.9em;overflow:hidden;">
                                     <a href="{{url('/collections/'.$categoryItem->slug)}}">
                                         <div class="category-card-img">
                                             <img src="{{asset("$categoryItem->image")}}" class="w-100" alt="Laptop">
@@ -103,7 +103,7 @@
                 <div class="owl-carousel owl-theme four-carousel">
                     @foreach ($trendingProducts as $productItem )
                     <div class="item">
-                        <div class="product-card">
+                        <div class="product-card" style="border-radius:0.9em;overflow:hidden;">
                             <div class="product-card-img">
                                 <label class="stock bg-danger">{{__('customlang.new')}}</label>
                                 @if ($productItem->productImages->count()>0)
@@ -155,7 +155,7 @@
                 <div class="owl-carousel owl-theme four-carousel">
                     @foreach ($newArrivalsProducts as $productItem )
                     <div class="item">
-                        <div class="product-card">
+                        <div class="product-card"  style="border-radius:0.9em;overflow:hidden;">
                             <div class="product-card-img">
                                 <label class="stock bg-danger">{{__('customlang.new')}}</label>
                                 @if ($productItem->productImages->count()>0)
@@ -207,7 +207,7 @@
                 <div class="owl-carousel owl-theme four-carousel">
                     @foreach ($featuredProducts as $productItem )
                     <div class="item">
-                        <div class="product-card">
+                        <div class="product-card" style="border-radius:0.9em;overflow:hidden;">
                             <div class="product-card-img">
                                 <label class="stock bg-danger">{{__('customlang.new')}}</label>
                                 @if ($productItem->productImages->count()>0)
@@ -244,16 +244,22 @@
         </div>
     </div>
   </div>
+
 @endsection
 
 @section('script')
 
 <script>
+    $(window).on('load',function(){
     $('.four-carousel').owlCarousel({
         loop:true,
         margin:10,
         dots:true,
         nav:false,
+        autoplay:true,
+        autoplayHoverPause:true,
+        autoPlayTimeout:1000,
+        smartSpeed:1000,
         responsive:{
             0:{
                 items:1
@@ -265,7 +271,8 @@
                 items:4
             }
         }
-    })
+    });
+});
 </script>
 
 @endsection
