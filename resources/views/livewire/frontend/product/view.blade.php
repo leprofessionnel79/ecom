@@ -223,19 +223,6 @@
 @push('scripts')
 
 <script>
-            $(function(){
-
-        $("#exzoom").exzoom({
-
-        "navWidth": 60,
-        "navHeight": 60,
-        "navItemNum": 5,
-        "navItemMargin": 7,
-        "navBorder": 1,
-        "autoPlay": false,
-        "autoPlayTimeout": 2000
-        });
-        });
 
     $(window).on('load',function(){
         $('.four-carousel').owlCarousel({
@@ -248,19 +235,33 @@
         autoplayHoverPause:true,
         autoPlayTimeout:1000,
         smartSpeed:1000,
-        // responsive:{
-        //     // 0:{
-        //     //     items:3
-        //     // },
-        //     // 600:{
-        //     //     items:3
-        //     // },
-        //     // 1000:{
-        //     //     items:4
-        //     // }
-        // },
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            // 1000:{
+            //     items:4
+            // }
+        }
+      });
     });
-});
+
+    $(function(){
+        $("#exzoom").exzoom({
+            "navWidth": 60,
+            "navHeight": 60,
+            "navItemNum": 5,
+            "navItemMargin": 7,
+            "navBorder": 1,
+            "autoPlay": false,
+            "autoPlayTimeout": 2000
+        });
+     });
+
+
 </script>
 
 @endpush

@@ -1,4 +1,4 @@
-<div class="main-navbar shadow-sm sticky-top">
+<div class="main-navbar shadow-sm  sticky-top">
     <div class="top-navbar">
         <div class="container-fluid">
             <div class="row">
