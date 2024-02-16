@@ -93,7 +93,7 @@
 
   <div class="py-5">
     <div class="container">
-        <div class="row ">
+        <div class="row">
             <div class="col-md-12">
                 <h4>{{__('customlang.trendingProducts')}}</h4>
                 <div class="underline mb-4"></div>
@@ -253,13 +253,14 @@
     $(window).on('load',function(){
     $('.four-carousel').owlCarousel({
         loop:true,
-        margin:10,
+        margin:7,
         dots:true,
         nav:false,
         autoplay:true,
         autoplayHoverPause:true,
         autoPlayTimeout:1000,
         smartSpeed:1000,
+        responsiveClass:true,
         responsive:{
             0:{
                 items:1

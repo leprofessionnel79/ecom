@@ -327,6 +327,18 @@
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.main-navbar .top-navbar .dropdownlang-menu{
+    padding: 0px 0px;
+    border-radius: 0px;
+}
+.main-navbar .top-navbar .dropdownlang-menu .dropdownLang-item{
+    padding: 8px 16px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+}
+
+
 .main-navbar .top-navbar .brand-name{
     color: #fff;
 }

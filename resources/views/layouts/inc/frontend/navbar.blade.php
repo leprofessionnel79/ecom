@@ -18,6 +18,15 @@
 
                 <div class="col-md-5 my-auto">
                     <ul class="nav justify-content-end">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Language
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{url('langConverter/en')}}">English</a></li>
+                                <li><a class="dropdown-item" href="{{url('langConverter/ar')}}">العربيه</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('cart')}}">
                                 <i class="fa fa-shopping-cart"></i> {{__('customlang.cart')}} (<livewire:frontend.cart.cart-count/>)
@@ -46,10 +55,10 @@
                                 <i class="fa fa-user"></i> {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{url('profile')}}"><i class="fa fa-user"></i> {{__('customlang.profile')}}</a></li>
-                            <li><a class="dropdown-item" href="{{url('orders')}}"><i class="fa fa-list"></i> {{__('customlang.myOrder')}}</a></li>
-                            <li><a class="dropdown-item" href="{{url('wishlist')}}"><i class="fa fa-heart"></i> {{__('customlang.myWishList')}}</a></li>
-                            <li><a class="dropdown-item" href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i> {{__('customlang.cart')}}</a></li>
+                                <li><a class="dropdown-item" href="{{url('profile')}}"><i class="fa fa-user"></i> {{__('customlang.profile')}}</a></li>
+                                <li><a class="dropdown-item" href="{{url('orders')}}"><i class="fa fa-list"></i> {{__('customlang.myOrder')}}</a></li>
+                                <li><a class="dropdown-item" href="{{url('wishlist')}}"><i class="fa fa-heart"></i> {{__('customlang.myWishList')}}</a></li>
+                                <li><a class="dropdown-item" href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i> {{__('customlang.cart')}}</a></li>
                             <li>
                                 <a class="dropdown-item" href="{{route('logout')}}"
                                    onclick="event.preventDefault();

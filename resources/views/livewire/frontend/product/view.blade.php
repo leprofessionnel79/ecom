@@ -126,7 +126,7 @@
                 </div>
                 <div class="col-md-12">
                     @if ($category)
-                    <div wire:ignore class="owl-carousel owl-theme four-carousel">
+                    <div  class="owl-carousel owl-theme four-carousel">
                         @foreach ($category->relatedProducts as $relatedProductItem )
                         <div  class="item mb-3">
                             <div class="product-card" style="border-radius: 0.9em;overflow: hidden">
@@ -178,7 +178,7 @@
                 </div>
                 <div class="col-md-12">
                     @if ($category)
-                    <div wire:ignore class="owl-carousel owl-theme four-carousel">
+                    <div  class="owl-carousel owl-theme four-carousel">
                             @foreach ($category->relatedProducts as $relatedProductItem )
                             @if ($relatedProductItem->brand=="$product->brand")
                             <div class="item mb-3">
@@ -227,7 +227,7 @@
     $(window).on('load',function(){
         $('.four-carousel').owlCarousel({
         loop:true,
-        margin:7,
+        margin:10,
         dots:true,
         nav:false,
         responsiveClass:true,
@@ -235,16 +235,26 @@
         autoplayHoverPause:true,
         autoPlayTimeout:1000,
         smartSpeed:1000,
+        responsiveClass:true,
         responsive:{
             0:{
                 items:1
             },
             600:{
+                items:2
+            },
+            800:{
                 items:3
             },
-            // 1000:{
+            // 1024:{
             //     items:4
-            // }
+            // },
+            // 1100:{
+            //     items:5
+            // },
+            // 1200:{
+            //     items:6
+            // },
         }
       });
     });
@@ -263,5 +273,7 @@
 
 
 </script>
+
+
 
 @endpush
