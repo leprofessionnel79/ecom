@@ -78,8 +78,13 @@
                             </div>
                         </div>
                         <div class="mt-2">
-                            <button type="button" wire:click="addToCart({{$product->id}})" class="btn btn1"> <i class="fa fa-shopping-cart">
-                                </i> {{__('customlang.addToCart')}}</button>
+                            <button type="button" wire:click="addToCart({{$product->id}})" class="btn btn1">
+                                <span wire:loading.remove wire:target="addToCart({{$product->id}})">
+                                    <i class="fa fa-shopping-cart">
+                                    </i> {{__('customlang.addToCart')}}
+                                </span>
+                                <span wire:loading wire:target="addToCart">{{__('customlang.adding...')}}</span>
+                            </button>
                             <button type="button" wire:click="addToWishList({{$product->id}})" class="btn btn1">
                                <span wire:loading.remove wire:target="addToWishList({{$product->id}})">
                                 <i class="fa fa-heart"></i> {{__('customlang.addTowishList')}}
@@ -114,7 +119,7 @@
     </div>
     {{-- py-3 py-md-5 --}}
     <div class="py-3 py-md-5">
-        <div class="container">
+        <div class="container" wire:ignore>
             <div class="row">
                 <div class="col-md-12 mb-3">
                     <h3>{{__('customlang.related')}}
@@ -166,7 +171,7 @@
 
     {{-- py-3 py-md-5 bg-white --}}
     <div class="py-3 py-md-5 bg-white">
-        <div class="container">
+        <div class="container" wire:ignore>
             <div class="row">
                 <div class="col-md-12 mb-3">
                     <h3>{{__('customlang.related')}}
