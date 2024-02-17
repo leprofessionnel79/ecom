@@ -234,6 +234,7 @@ return [
     'productSearchResult'=>'نتائج بحث المنتج',
     'days'=>'أيام',
     'noItemInCartToCheckOut'=>' !لا توجد منتجات في السله',
+    'lang'=>'العربيه',
 
 
     ];

@@ -234,6 +234,7 @@ return [
     'productSearchResult'=>'Product search results',
     'days'=>'days',
     'noItemInCartToCheckOut'=>'No Items In Cart To Checkout!',
+    'lang'=>'english',
 
 
 

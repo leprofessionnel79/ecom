@@ -19,8 +19,8 @@
                 <div class="col-md-5 my-auto">
                     <ul class="nav justify-content-end">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Language
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{App::getlocale()=='ar'?'العربيه':'english'}}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{url('langConverter/en')}}">English</a></li>
