@@ -42,12 +42,12 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Pin-code (Zip-code)</label>
-                                    <input type="number" wire:model.defer="pincode" id="pincode" class="form-control" placeholder="Enter Pin-code" />
+                                    <input type="text" wire:model.defer="pincode" id="pincode" class="form-control" placeholder="Enter Pin-code" />
                                     @error('pincode') <small class="text-danger">{{$message}}</small> @enderror
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label>{{__('customlang.fullAddress')}}</label>
-                                    <textarea wire:model.defer="address" id="address" class="form-control" rows="2"></textarea>
+                                    <textarea wire:model.defer="address" id="address" class="form-control" rows="2" placeholder="Enter Full Address"></textarea>
                                     @error('address') <small class="text-danger">{{$message}}</small> @enderror
                                 </div>
                                 <div class="col-md-12 mb-3" wire:ignore>

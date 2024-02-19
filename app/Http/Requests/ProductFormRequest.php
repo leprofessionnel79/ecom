@@ -52,11 +52,11 @@ class ProductFormRequest extends FormRequest
             ],
             'original_price'=>[
                 'required',
-                'integer',
+                'numeric',
             ],
             'selling_price'=>[
                 'required',
-                'string',
+                'numeric',
             ],
             'quantity'=>[
                 'required',

@@ -20,7 +20,7 @@ class Orderitem extends Model
         'product_id',
         'product_color_id',
         'quantity',
-        'price'
+        'price',
 
     ];
 

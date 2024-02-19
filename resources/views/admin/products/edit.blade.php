@@ -124,13 +124,13 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label>{{__('customlang.originalPrice')}}</label>
-                                    <input type="text" name="original_price" value="{{$product->original_price}}" class="form-control">
+                                    <input type="number" step="0.01" min="0.00" name="original_price" value="{{$product->original_price}}" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label>{{__('customlang.sellingPrice')}}</label>
-                                    <input type="text" name="selling_price" value="{{$product->selling_price}}" class="form-control">
+                                    <input type="number" step="0.01" min="0.00" name="selling_price" value="{{$product->selling_price}}" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4">
