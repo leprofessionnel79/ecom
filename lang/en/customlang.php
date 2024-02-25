@@ -235,7 +235,7 @@ return [
     'days'=>'days',
     'noItemInCartToCheckOut'=>'No Items In Cart To Checkout!',
     'lang'=>'english',
-
+    'realTimeNotification'=> 'RealTime Notification',
 
 
     ];

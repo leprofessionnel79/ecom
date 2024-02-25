@@ -15,6 +15,7 @@
     <!-- Scripts -->
 
 
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
@@ -66,25 +67,40 @@
     </div>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    <script>
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/exzoom/jquery.exzoom.js') }}"></script>
+    <script src="{{ asset('assets/notify.js') }}"></script>
+
+
+   <script>
         window.addEventListener('message', event => {
             if(event.detail)
             {
                 alertify.set('notifier','position', 'top-right');
                 alertify.notify(event.detail.text,event.detail.type);
             }
+        });
 
-    });
     </script>
 
-    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/exzoom/jquery.exzoom.js') }}"></script>
+    <script>
+        var source = new EventSource("{{URL('/sse-updates')}}");
 
+        source.onmessage = function(event){
+
+            let ac = JSON.parse(event.data);
+
+            $.notify(ac.message,'success');
+        }
+
+    </script>
 
     @yield('script')
 
     @livewireScripts
     @stack('scripts')
 </body>
+
+
+
 </html>

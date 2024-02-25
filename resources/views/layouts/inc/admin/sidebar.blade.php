@@ -75,6 +75,13 @@
           <span class="menu-title">{{__('customlang.siteSetting')}}</span>
         </a>
       </li>
+
+      <li class="nav-item {{Request::is('admin/send-notification')?'active':''}}">
+        <a class="nav-link" href="{{url('admin/send-notification')}}">
+          <i class="mdi mdi-settings menu-icon"></i>
+          <span class="menu-title">{{__('customlang.realTimeNotification')}}</span>
+        </a>
+      </li>
       <li class="nav-item {{Request::is('langConverter')?'active':''}}">
         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic3" aria-expanded="{{Request::is('langConverter')?'true':'false'}}" aria-controls="ui-basic3">
           <i class="mdi mdi-account-supervisor menu-icon"></i>

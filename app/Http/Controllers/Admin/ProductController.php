@@ -34,6 +34,13 @@ class ProductController extends Controller
     {
        $locale = app()->getLocale();
 
+       $allProducts = Product::count();
+       if($allProducts=4){
+
+        return redirect('admin/products')->with('message','you reach the plan products size , please resubscribe or upgrade');
+
+       }else{
+
        $validatedData = $request->validated();
 
        $category = Category::findOrFail($validatedData['category_id']);
@@ -85,6 +92,7 @@ class ProductController extends Controller
         return redirect('admin/products')->with('message','تم إضافة المنتج بنجاح');
        }
        return redirect('admin/products')->with('message','Product Added Successfully');
+      }
     }
 
     public function edit($product_id)

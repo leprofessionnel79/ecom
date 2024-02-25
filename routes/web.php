@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\NotificationsController;
+use App\Http\Controllers\SSEController;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Auth::routes();
+
+Route::get('admin/send-notification',[NotificationsController::class,'index']);
+Route::post('create-notification',[NotificationsController::class,'create']);
+Route::get('/sse-updates',[SSEController::class,'sendSSE']);
 
 Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function () {
 

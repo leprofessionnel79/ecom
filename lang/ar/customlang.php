@@ -235,6 +235,7 @@ return [
     'days'=>'أيام',
     'noItemInCartToCheckOut'=>' !لا توجد منتجات في السله',
     'lang'=>'العربيه',
+    'realTimeNotification'=> 'اشعارات الوقت الحالي',
 
 
     ];
