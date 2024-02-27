@@ -23,8 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('admin/send-notification',[NotificationsController::class,'index']);
-Route::post('create-notification',[NotificationsController::class,'create']);
+
+
 Route::get('/sse-updates',[SSEController::class,'sendSSE']);
 
 Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function () {
@@ -72,6 +72,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
 
+    Route::get('send-notification',[NotificationsController::class,'index']);
+    Route::post('/create-notification',[NotificationsController::class,'create']);
     Route::get('search-product',[App\Http\Controllers\Admin\SearchController::class,'searchProduct']);
     Route::get('dashboard',[App\Http\Controllers\Admin\DashboardController::class,'index']);
 

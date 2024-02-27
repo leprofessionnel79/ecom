@@ -20,9 +20,9 @@
             </div>
 
             <div class="col-md-2">
-                <input type="button" class="btn btn-success text-white" value="Send" onclick="sendNotification()"/>
+                <input type="submit" class="sendNotification btn btn-success text-white" value="Send" />
             </div>
-
+            {{-- onclick="sendNotification()" --}}
         </div>
 </div>
 
@@ -37,20 +37,29 @@
                 }
         });
 
-       function sendNotification(id){
-        $.ajax({
-            type: "post",
-            url: '{{URL('create-notification')}}',
+        $(document).ready(function (){
+        $(document).on('click','.sendNotification',function(){
+
+         
+            $.ajax({
+            type: "POST",
+            url: "/admin/create-notification",
             data: {
-                '_token':"{{csrf_token()}}",
                 'id':$("#user_id").val(),
                 'message':$("#message").val(),
             },
             success: function (data) {
                 console.log(data);
             }
+           });
+
         });
-       }
+
+           // function sendNotification(id){
+
+       });
+
+
     </script>
 
 @endsection
