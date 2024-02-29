@@ -94,6 +94,7 @@ class CheckoutShow extends Component
             'pincode'=> $this->pincode,
             'address'=> $this->address,
             'status_message'=> 'in progress',
+            'is_send'=>'0',
             'payment_mode'=> $this->payment_mode,
             'payment_id'=> $this->payment_id
         ]);
@@ -148,7 +149,7 @@ class CheckoutShow extends Component
                 'type' => 'success',
                 'status' => 200
             ]);
-            
+
           return redirect()->to('thank-you');
         }else
         {

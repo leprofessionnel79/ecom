@@ -23,9 +23,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-
+//ordersendSSE
 
 Route::get('/sse-updates',[SSEController::class,'sendSSE']);
+Route::get('/sse-order-updates',[SSEController::class,'ordersendSSE']);
 
 Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function () {
 

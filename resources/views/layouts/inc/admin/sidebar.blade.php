@@ -78,7 +78,7 @@
 
       <li class="nav-item {{Request::is('admin/send-notification')?'active':''}}">
         <a class="nav-link" href="{{url('admin/send-notification')}}">
-          <i class="mdi mdi-settings menu-icon"></i>
+            <i class="mdi mdi-message-text menu-icon"></i>
           <span class="menu-title">{{__('customlang.realTimeNotification')}}</span>
         </a>
       </li>

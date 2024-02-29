@@ -22,6 +22,7 @@ class Order extends Model
         'pincode',
         'address',
         'status_message',
+        'is_send',
         'payment_mode',
         'payment_id'
 

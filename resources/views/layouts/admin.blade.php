@@ -110,6 +110,7 @@
 
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/notify.js') }}"></script>
 
 
     <div class="container-scroller">
@@ -147,6 +148,33 @@
 
     {{-- <script src="admin/js/jquery.cookie.js" type="text/javascript"></script> --}}
      <!-- End custom js for this page-->
+
+
+     <script>
+        var source = new EventSource("{{URL('/sse-updates')}}");
+
+        source.onmessage = function(event){
+
+            let ac = JSON.parse(event.data);
+
+
+            $.notify(ac.message,'info');
+        }
+
+      </script>
+
+      <script>
+            var source = new EventSource("{{URL('/sse-order-updates')}}");
+
+            source.onmessage = function(event){
+
+                let ac = JSON.parse(event.data);
+
+
+                $.notify(ac.message,'success');
+            }
+
+       </script>
     @yield('scripts')
 
     @livewireScripts

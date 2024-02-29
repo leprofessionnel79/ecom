@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
             $table->string('pincode');
             $table->mediumText('address');
             $table->string('status_message');
+            $table->boolean('is_send')->nullable('false')->default('0');
             $table->string('payment_mode');
             $table->string('payment_id')->nullable();
             $table->timestamps();
