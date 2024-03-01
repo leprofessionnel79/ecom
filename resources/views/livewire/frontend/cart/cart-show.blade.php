@@ -65,7 +65,7 @@
                                     <div class="col-md-1 my-auto">
                                         <label class="price">{{$appSetting->currency}} {{$cartItem->product->selling_price * $cartItem->quantity}} </label>
                                         @php
-                                            $totalPrice+=$cartItem->product->selling_price * $cartItem->quantity
+                                            $totalPrice+=($cartItem->product->selling_price * $cartItem->quantity)
                                         @endphp
                                     </div>
                                     <div class="col-md-2 col-5 my-auto">

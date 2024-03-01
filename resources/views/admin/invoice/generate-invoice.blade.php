@@ -4,6 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>{{__('customlang.invoice')}} #{{$order->id}}</title>
 
+
+
     <style>
         html,
         body {

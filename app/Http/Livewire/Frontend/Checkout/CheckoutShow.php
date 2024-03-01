@@ -112,6 +112,7 @@ class CheckoutShow extends Component
             if($cartItem->product_color_id != NULL)
             {
                 $cartItem->productColor()->where('id',$cartItem->product_color_id)->decrement('quantity',$cartItem->quantity);
+                $cartItem->product()->where('id',$cartItem->product_id)->decrement('quantity',$cartItem->quantity);
 
             }else{
 
