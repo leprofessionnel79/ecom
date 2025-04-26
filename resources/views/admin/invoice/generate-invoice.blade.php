@@ -5,16 +5,17 @@
     <title>{{__('customlang.invoice')}} #{{$order->id}}</title>
 
 
-
     <style>
         html,
         body {
             margin: 10px;
             padding: 10px;
             font-family: sans-serif;
+            font-weight: 500;
         }
         h1,h2,h3,h4,h5,h6,p,span,label {
             font-family: sans-serif;
+            font-weight: 500;
         }
         table {
             width: 100%;
@@ -26,11 +27,13 @@
             text-align: left;
             font-size: 16px;
             font-family: sans-serif;
+
         }
         table, th, td {
             border: 1px solid #ddd;
             padding: 8px;
             font-size: 14px;
+
         }
 
         .heading {
@@ -38,15 +41,18 @@
             margin-top: 12px;
             margin-bottom: 12px;
             font-family: sans-serif;
+
         }
         .small-heading {
             font-size: 18px;
             font-family: sans-serif;
+
         }
         .total-heading {
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 500;
             font-family: sans-serif;
+
         }
         .order-details tbody tr td:nth-child(1) {
             width: 20%;
@@ -86,18 +92,18 @@
         <thead>
             <tr>
                 <th width="50%" colspan="2">
-                    <h2 class="text-start">{{$appSetting->website_name}}</h2>
+                    <h2 class="text-center">{{$appSetting->website_name}}</h2>
                 </th>
-                <th width="50%" colspan="2" class="text-end company-data">
+                <th width="50%" colspan="2" class="text-start company-data">
                     <span>Invoice Id: #{{$order->id}}</span> <br>
                     <span>Date: {{date('d / m / Y')}}</span> <br>
                     <span>Zip code : 560077</span> <br>
                     <span>{{__('customlang.address')}}: Damas Syria</span> <br>
                 </th>
             </tr>
-            <tr class="bg-blue">
-                <th width="50%" colspan="2">{{__('customlang.orderDetails')}}</th>
-                <th width="50%" colspan="2">{{__('customlang.userDetails')}}</th>
+            <tr class="bg-blue text-center">
+                <th width="50%" colspan="2" class="text-center">{{__('customlang.orderDetails')}}</th>
+                <th width="50%" colspan="2" class="text-center">{{__('customlang.userDetails')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -139,19 +145,19 @@
         </tbody>
     </table>
 
-    <table>
+    <table dir="{{App::getLocale()=='ar'?'rtl':'ltr'}}">
         <thead>
             <tr>
-                <th class="no-border text-start heading" colspan="5">
+                <th class="no-border text-center heading" colspan="5">
                     {{__('customlang.orderItems')}}
                 </th>
             </tr>
-            <tr class="bg-blue">
-                <th>ID</th>
-                <th>{{__('customlang.product')}}</th>
-                <th>{{__('customlang.price')}}</th>
-                <th>{{__('customlang.quantity')}}</th>
-                <th>{{__('customlang.total')}}</th>
+            <tr class="bg-blue text-centre">
+                <th class="text-center">ID</th>
+                <th class="text-center">{{__('customlang.product')}}</th>
+                <th class="text-center">{{__('customlang.price')}}</th>
+                <th class="text-center">{{__('customlang.quantity')}}</th>
+                <th class="text-center">{{__('customlang.total')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -160,8 +166,8 @@
             @endphp
             @foreach ($order->orderItems as $orderItem)
             <tr>
-            <td width="10%">{{$orderItem->id}}</td>
-            <td>
+            <td class="text-center" width="10%">{{$orderItem->id}}</td>
+            <td class="text-center">
                 {{$orderItem->product->name}}
                 @if ($orderItem->productColor)
                     @if ($orderItem->productColor->color)
@@ -169,17 +175,17 @@
                     @endif
                 @endif
             </td>
-            <td width="10%">{{$appSetting->currency}} {{$orderItem->price}}</td>
-            <td width="10%">{{$orderItem->quantity}}</td>
-            <td width="15%" class="fw-bold">{{$appSetting->currency}} {{$orderItem->quantity * $orderItem->price}}</td>
+            <td class="text-center" width="10%">{{$appSetting->currency}} {{$orderItem->price}}</td>
+            <td class="text-center" width="10%">{{$orderItem->quantity}}</td>
+            <td class="text-center" width="15%" class="fw-bold">{{$appSetting->currency}} {{$orderItem->quantity * $orderItem->price}}</td>
             @php
             $totalPrice += $orderItem->quantity * $orderItem->price;
             @endphp
             </tr>
             @endforeach
             <tr>
-            <td colspan="4" class="total-heading">{{__('customlang.totalAmount')}} - <small>Inc. all vat/tax</small> :</td>
-            <td colspan="1" class="total-heading">{{$appSetting->currency}} {{$totalPrice}}</td>
+            <td colspan="4" class="total-heading text-center">{{__('customlang.totalAmount')}} - <small>Inc. all vat/tax</small> :</td>
+            <td colspan="1" class="total-heading text-center">{{$appSetting->currency}} {{$totalPrice}}</td>
             </tr>
         </tbody>
     </table>

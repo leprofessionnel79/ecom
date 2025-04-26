@@ -33,7 +33,7 @@
                         </h4>
                         <hr>
                         <p class="product-path">
-                            {{__('customlang.homePage')}} / {{$product->category->name}} / {{$product->name}}
+                           <a href="{{url('/')}}">{{__('customlang.homePage')}}</a> /<a href="{{url('/collections/'.$product->category->name)}}">{{$product->category->name}}</a>/{{$product->name}}
                         </p>
                         <p class="product-path">
                             {{__('customlang.brand')}} : {{$product->brand}}
@@ -191,7 +191,7 @@
                                     <div class="product-card-img">
                                         @if ($relatedProductItem->productImages->count()>0)
                                         <a href="{{url('/collections/'.$relatedProductItem->category->slug.'/'.$relatedProductItem->slug)}}">
-                                        <img src="{{asset($relatedProductItem->productImages[0]->image)}}" alt="{{$relatedProductItem->name}}">
+                                        <img src="{{asset($relatedProductItem->productImages[0]->image)}}" class="w-100" alt="{{$relatedProductItem->name}}">
                                         </a>
                                         @endif
                                     </div>
@@ -240,7 +240,6 @@
         autoplayHoverPause:true,
         autoPlayTimeout:1000,
         smartSpeed:1000,
-        responsiveClass:true,
         responsive:{
             0:{
                 items:1

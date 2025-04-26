@@ -20,9 +20,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
 
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
 
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -45,7 +45,6 @@
 
     {{-- exzoom Product Image --}}
     <link href="{{ asset('assets/exzoom/jquery.exzoom.css') }}" rel="stylesheet">
-
 
     <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
@@ -90,7 +89,11 @@
 
             let ac = JSON.parse(event.data);
 
-            $.notify(ac.message,'success');
+            $.notify(ac.message,{
+                    className:'success',
+                    autoHideDelay: 10000,
+                    autoHide: true,
+                });
         }
 
     </script>

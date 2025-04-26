@@ -158,7 +158,12 @@
             let ac = JSON.parse(event.data);
 
 
-            $.notify(ac.message,'info');
+
+            $.notify(ac.message,{
+                className:'info',
+                autoHideDelay: 10000,
+                autoHide: true,
+            });
         }
 
       </script>
@@ -170,8 +175,13 @@
 
                 let ac = JSON.parse(event.data);
 
+                //'success'
 
-                $.notify(ac.message,'success');
+                $.notify(ac.message,{
+                    className:'success',
+                    autoHideDelay: 10000,
+                    autoHide: true,
+                });
             }
 
        </script>

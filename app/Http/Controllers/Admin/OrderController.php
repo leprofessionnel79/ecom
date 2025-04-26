@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Mail\InvoiceOrderMailable;
+use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 
@@ -87,6 +88,7 @@ class OrderController extends Controller
 
    public function generateInvoice(int $orderId)
    {
+        App::setlocale('en');
         $order = Order::findOrFail($orderId);
         $data=['order'=>$order];
 

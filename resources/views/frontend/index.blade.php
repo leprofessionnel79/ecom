@@ -62,7 +62,7 @@
 
   <div class="py-5">
     <div class="container">
-        <div class="row ">
+        <div class="row">
             <div class="col-md-12">
                 <h4>{{__('customlang.allCategories')}}</h4>
                 <div class="underline mb-4"></div>

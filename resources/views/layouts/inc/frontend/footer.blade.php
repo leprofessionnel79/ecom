@@ -56,7 +56,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <p class=""> &copy; 2024 - SAMADI- Ecommerce. {{__('customlang.allRightsReserved')}}</p>
+                        <p class=""> &copy; 2025 - SAMADI- Ecommerce. {{__('customlang.allRightsReserved')}}</p>
                     </div>
                     <div class="col-md-4">
                         <div class="social-media">
