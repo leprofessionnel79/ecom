@@ -33,7 +33,7 @@
                         </h4>
                         <hr>
                         <p class="product-path">
-                           <a href="{{url('/')}}">{{__('customlang.homePage')}}</a> /<a href="{{url('/collections/'.$product->category->name)}}">{{$product->category->name}}</a> /{{$product->name}}
+                           <a href="{{url('/')}}" style="text-decoration: none">{{__('customlang.homePage')}} </a> /<a href="{{url('/collections/'.$product->category->name)}}" style="text-decoration: none">{{$product->category->name}}</a> /{{$product->name}}
                         </p>
                         <p class="product-path">
                             {{__('customlang.brand')}} : {{$product->brand}}
