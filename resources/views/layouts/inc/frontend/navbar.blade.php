@@ -78,10 +78,10 @@
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="#">
-                SAMADI Ecom
+            <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="{{url('/')}}">
+                {{$appSetting->website_name??'website name'}}
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -100,7 +100,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/featured-products')}}">{{__('customlang.featuredProducts')}}</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="#">{{__('customlang.electronics')}}</a>
                     </li>
                     <li class="nav-item">
@@ -108,7 +108,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">{{__('customlang.accessories')}}</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('langConverter/en')}}">English</a>
                     </li>
