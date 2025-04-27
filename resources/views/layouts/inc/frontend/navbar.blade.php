@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
-                    <h5 class="brand-name">{{$appSetting->website_name??'website name'}}</h5>
+                   <a href="{{url('/')}}" style="text-decoration: none"> <h5 class="brand-name">{{$appSetting->website_name??'website name'}}</h5> </a>
                 </div>
                 <div class="col-md-5 my-auto">
                     <form action="{{url('search')}}" method="GET" role="search">
