@@ -114,7 +114,7 @@ class CartShow extends Component
                 }else
                 {
                     $this->dispatchBrowserEvent('message', [
-                        'text' => $locale=='en'?'Only '.$cartData->product->quantity.' Quantity Available':($locale=='ar'?'فقط '.$cartData->product->quantity.' متوفره':''),
+                        'text' => $locale=='en'?'Only '.$productColor->quantity.' Quantity Available':($locale=='ar'?'فقط '.$cartData->product->quantity.' متوفره':''),
                         'type' => 'success',
                         'status' => 200
                         ]);

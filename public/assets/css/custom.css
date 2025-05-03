@@ -1,11 +1,12 @@
 .footer-area{
     padding: 40px 0px;
-    background-color: #2874f0;
+    background-color: #545659fe;
     color: #fff;
     margin-top: 100px;
 }
 .footer-area a{
     text-decoration: none;
+
 }
 .footer-area .footer-heading{
     font-size: 24px;
@@ -14,7 +15,6 @@
 .footer-area .footer-underline{
     height: 1px;
     width: 70px;
-    background-color: #ddd;
     margin: 10px 0px;
 }
 .copyright-area{
@@ -320,7 +320,7 @@
     border-bottom: 1px solid #ccc;
 }
 .main-navbar .top-navbar{
-    background-color: #2874f0;
+    background-color: #545659fe;
     padding-top: 10px;
     padding-bottom: 10px;
 }
