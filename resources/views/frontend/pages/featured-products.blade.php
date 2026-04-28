@@ -7,7 +7,7 @@
 <div class="py-5">
     <div class="container">
         <div class="row ">
-            <div class="col-md-12">
+            <div class="col-md-12" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
                 <h4>{{__('customlang.featuredProducts')}}</h4>
                 <div class="underline mb-4"></div>
             </div>

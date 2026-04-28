@@ -121,7 +121,7 @@
     <div class="py-3 py-md-5">
         <div class="container" wire:ignore>
             <div class="row">
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-3" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
                     <h3>{{__('customlang.related')}}
                         @if ($category)
                          {{$category->name}}
@@ -173,7 +173,7 @@
     <div class="py-3 py-md-5 bg-white">
         <div class="container" wire:ignore>
             <div class="row">
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-3" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
                     <h3>{{__('customlang.related')}}
                         @if ($product)
                          {{$product->brand}}

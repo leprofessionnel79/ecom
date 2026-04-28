@@ -1,6 +1,6 @@
 
     <div>
-        <div class="footer-area" style=" margin-top: 100px;">
+        <div class="footer-area" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}" style=" margin-top: 100px;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
@@ -56,7 +56,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <p class=""> &copy; 2025 - SAMADI- Ecommerce. {{__('customlang.allRightsReserved')}}</p>
+                        <p class=""> &copy; 2026 - SAMADI- Ecommerce. {{__('customlang.allRightsReserved')}}</p>
                     </div>
                     <div class="col-md-4">
                         <div class="social-media">

@@ -7,7 +7,7 @@
 <div class="py-3 py-md-5 bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
                 <h4 class="mb-4">{{__('customlang.allCategories')}}</h4>
             </div>
 

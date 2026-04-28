@@ -63,7 +63,7 @@
   <div class="py-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
                 <h4>{{__('customlang.allCategories')}}</h4>
                 <div class="underline mb-4"></div>
             </div>
@@ -94,7 +94,7 @@
   <div class="py-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
                 <h4>{{__('customlang.trendingProducts')}}</h4>
                 <div class="underline mb-4"></div>
             </div>
