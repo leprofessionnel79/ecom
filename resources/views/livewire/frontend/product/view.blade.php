@@ -1,6 +1,6 @@
 <div>
     <div class="py-3 py-md-5">
-        <div class="container" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
+        <div class="container">
             <div class="row">
                 <div class="col-md-5 mt-3">
                     <div class="bg-white border" wire:ignore>
@@ -103,7 +103,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 mt-3">
-                    <div class="card">
+                    <div class="card" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
                         <div class="card-header bg-white">
                             <h4>{{__('customlang.description')}}</h4>
                         </div>
