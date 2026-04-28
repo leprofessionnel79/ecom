@@ -1,6 +1,6 @@
 <div>
     <div class="py-3 py-md-5">
-        <div class="container">
+        <div class="container" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
             <div class="row">
                 <div class="col-md-5 mt-3">
                     <div class="bg-white border" wire:ignore>
